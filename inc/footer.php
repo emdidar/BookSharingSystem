@@ -1,47 +1,87 @@
-	<footer>
-		<div class="footer">
-			<div class="container">
-				<div class="social-icon">
-					<div class="col-md-4">
-						<ul class="social-network">
-							<li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
-						</ul>	
-					</div>
-				</div>
-				
-				<div class="col-md-4 col-md-offset-4">
-					<div class="copyright">
-						&copy; CodingHelpBD. All Rights Reserved.
-                        <div class="credits">
-                            
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="address">
+                        <h4>Our Address</h4>
+                        <h6>The BookStore, Chittagong</h6>
+                        <h6>Call : 800 1234 5678</h6>
+                        <h6>Email : info@bookstore.com</h6>
+                    </div>
+                    <div class="timing">
+                        <h4>Timing</h4>
+                        <h6>Mon - Fri: 7am - 10pm</h6>
+                        <h6>Saturday: 8am - 10pm</h6>
+                        <h6>Sunday: 8am - 11pm</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="navigation">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About Us</a></li>
+                            <li><a href="privacy-policy.php">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.php">Terms</a></li>
+                            <li><a href="products.php">Products</a></li>
+                        </ul>
+                    </div>
+                    <div class="navigation">
+                        <h4>Help</h4>
+                        <ul>
+                            <li><a href="">Shipping & Returns</a></li>
+                            <li><a href="privacy-policy.php">Privacy</a></li>
+                            <li><a href="faq.php">FAQ’s</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form">
+                        <h3>Quick Contact us</h3>
+                        <h6></h6>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input placeholder="Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" placeholder="Email" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea placeholder="Messege"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn black">Alright, Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>(C) 2019. All Rights Reserved. BookStore</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="share align-middle">
+                            <span class="fb"><i class="fa fa-facebook-official"></i></span>
+                            <span class="instagram"><i class="fa fa-instagram"></i></span>
+                            <span class="twitter"><i class="fa fa-twitter"></i></span>
+                            <span class="pinterest"><i class="fa fa-pinterest"></i></span>
+                            <span class="google"><i class="fa fa-google-plus"></i></span>
                         </div>
-					</div>
-				</div>						
-			</div>
-			
-			<div class="pull-right">
-				<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
-			</div>		
-		</div>
-	</footer>
-
-	
-	
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    
-	<script src="js/jquery-2.1.1.min.js"></script>
-   
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>  
-	<script src="js/wow.min.js"></script>
-	<script src="js/functions.js"></script>
-	
-	
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script src="js/custom.js"></script>
 </body>
+
 </html>

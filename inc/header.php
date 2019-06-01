@@ -20,141 +20,74 @@
   header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
   header("Cache-Control: max-age=2592000");
 ?>
-
-<!DOCTYPE.php>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-      
-    
-    <!--preloader1 Start-->
-    <style>
-    .no-js #loader { display: none;  }
-    .js #loader { display: block; position: absolute; left: 100px; top: 0; }
-    .se-pre-con {
-        position: fixed;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        background: url(images/loader-64x/Preloader_2.gif) center no-repeat #fff;
-    }
-    </style>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-    <script src="js/modernizr.js"></script>
-    
-    <script>
-        $(window).load(function() {
-            // Animate loader off screen
-            $(".se-pre-con").fadeOut("slow");;
-        });
-    </script>    
-    <!--preloader1 End-->
-    
-    
-    
-    
-    
-
-	<link rel="icon" type="image/png" href="images/favicon.ico">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Coding Help BD</title>
-    
-    
-    <meta content='বাংলা ওয়েব এবং সফটওয়্যার ডেভেলপমেন্ট টিউটোরিয়াল।' name='description'/>
-    <meta content='http://www.codinghelpbd.com/' property='og:url'/>
-    <meta content='Coding Help BD' property='og:title'/>
-    <meta content='বাংলা ওয়েব এবং সফটওয়্যার ডেভেলপমেন্ট টিউটোরিয়াল।' property='og:description'/>
+    <meta name="theme-color" content="#03a6f3">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
 
-    <meta content='Coding Help BD, live project tutorial, bangla coding tutorial, Training with Live Project, bangla java tutorial,java bangla tutorial youtube, php live project training, php bangla tutorial youtube, php bangla video tutorial, php mysql bangla tutorial , bangla tutorial blog, Dhaka, Bangla CodeIgniter tutorial, Bangla SEO tutorial, Bangla Graphic Design tutorial, Bangla Oracle Database tutorial, Bangla MySQL Database tutorial,বাংলা পিএইচপি (PHP OOP) টিউটোরিয়াল, বাংলা অবজেক্ট ওরিয়েন্টেড পিএইচপি,অবজেক্ট ওরিয়েন্টেড পিএইচপি,অবজেক্ট ওরিয়েন্টেড প্রোগ্রামিং' name='keywords'/>
-    <meta content='index, follow' name='robots'/>
-    <meta content='website' property='og:type'/>
-    <meta content='Coding Help BD' property='og:site_name'/>
-    <meta content='https://www.facebook.com/codinghelpbd' property='article:author'/>
-    <meta content='https://www.twiter.com/codinghelpbd' property='article:publisher'/>
-
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link href="css/prettyPhoto.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet" />	
-   
-   
-   <!--preloader2 Start-->
-   
-    <!--<link rel="stylesheet" href="css/fakeLoader.min.css">    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery3.3.1.min.js"></script>   
-	<script src="js/jquery3.3.1.min.js"></script>
-    <script src="js/fakeLoader.min.js"></script>
-    <div class="fakeLoader"></div>
-
-    <script>
-        $(document).ready(function () {
-            $.fakeLoader({
-                bgColor: '#2ecc71',
-                spinner:"spinner7"
-            });
-        });
-    </script>-->
-    
-    <!--preloader2 End-->
-    
-    
-  </head>
-  <body>
-      
-    <!--preloader1 Start-->
-    <div class="se-pre-con"></div>
-    <script>
-        $(window).load(function() {
-		$(".se-pre-con").fadeOut("slow");;
-	});  
-    </script>
-    <!--preloader1 End-->
-    
-    
-    
-	
-	<header>		
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="navigation">
-				<div class="container">					
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<div class="navbar-brand">
-							<a href="index.php"><img class="logoSize" src="images/logo.png" alt="Coding Help BD"></a>
-						</div>
-					</div>
-					
-					<div class="navbar-collapse collapse">							
-						<div class="menu">
-							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation"><a href="index.php" class="<?php if(basename($_SERVER['SCRIPT_NAME']) == 'index.php'){echo 'active'; }else { echo ''; } ?>">Home</a></li>
-								
-								<li role="presentation"><a href="courses.php" class="<?php if(basename($_SERVER['SCRIPT_NAME']) == 'courses.php'){echo 'active'; }else { echo ''; } ?>">Courses</a></li>
-								
-								<li role="presentation"><a href="blog.php" class="<?php if(basename($_SERVER['SCRIPT_NAME']) == 'blog.php'){echo 'active'; }else { echo ''; } ?>">Blog</a></li>
-								
-								<li role="presentation"><a href="about.php" class="<?php if(basename($_SERVER['SCRIPT_NAME']) == 'about.php'){echo 'active'; }else { echo ''; } ?>">About Us</a></li>
-								
-								<li role="presentation"><a href="contact.php" class="<?php if(basename($_SERVER['SCRIPT_NAME']) == 'contact.php'){echo 'active'; }else { echo ''; } ?>">Contact</a></li>	
-								
-								<!--<li role="presentation"><a href="services.php">Services</a></li>								
-								<li role="presentation"><a href="portfolio.php">Portfolio</a></li>-->					
-							</ul>
-						</div>
-					</div>						
-				</div>
-			</div>	
-		</nav>		
-	</header>
+<body>
+    <header>
+		<!--
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><a href="#" class="web-url">www.bookstore.com</a></div>
+                    <div class="col-md-6">
+                        <h5>Free Shipping Over $99 + 3 Free Samples With Every Order</h5></div>
+                    <div class="col-md-3">
+                        <span class="ph-number">Call : 800 1234 5678</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+		-->
+		
+        <div class="main-menu">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="navbar-item active">
+                                <a href="index.php" class="nav-link">Home</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="shop.php" class="nav-link">Shop</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="about.php" class="nav-link">About</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="faq.php" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="login.php" class="nav-link">Login</a>
+                            </li>
+                        </ul>
+                        <div class="cart my-2 my-lg-0">
+                            <span>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                            <span class="quntity">3</span>
+                        </div>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">
+                            <span class="fa fa-search"></span>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
