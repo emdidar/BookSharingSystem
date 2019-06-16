@@ -29,7 +29,7 @@
                             <img src="images/img2.jpg" alt="img">
                             <h3>How to write a book...</h3>
                             <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
-                            <span class="sale">Sale !</span>
+                            <!--<span class="sale">Sale !</span>-->
                             <div class="hover">
                                 <a href="product-single.php">
                             <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>

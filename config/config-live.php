@@ -1,6 +1,6 @@
 
 <?php
 define("DB_HOST", "localhost");
-define("DB_USER", "codinghelpbd_user");
-define("DB_PASS", "RU{$x3ZZq}Y&");
-define("DB_NAME", "codinghelpbd_db");
+define("DB_USER", "BookSharingSystem");
+define("DB_PASS", "BookSharingSystem";
+define("DB_NAME", "BookSharingSystem");

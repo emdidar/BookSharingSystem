@@ -50,20 +50,13 @@
                 <div class="col-md-6 slider-content">
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. Lorem Ipsum has been the book. </p>
                     <p>t has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
+                    <p><span>Author Name: </span> Md. Kutub Uddin</p>
+                    <p><span>Upload by: </span> Bahar</p>
                     <ul>
                         <li>
-                            <span class="name">Digital List Price</span><span class="clm">:</span>
-                            <span class="price">$4.71</span>
+                            <span class="name">Price</span><span class="clm">:</span>
+                            <span class="price final">250 Tk</span>
                         </li>
-                        <li>
-                            <span class="name">Print List Price</span><span class="clm">:</span>
-                            <span class="price">$10.99</span>
-                        </li>
-                        <li>
-                            <span class="name">Kindle Price</span><span class="clm">:</span>
-                            <span class="price final">$3.37</span>
-                        </li>
-                        <li><span class="save-cost">Save $7.62 (69%)</span></li>
                     </ul>
                     <div class="btn-sec">
                         <button class="btn ">Add To cart</button>
@@ -93,7 +86,7 @@
                             <img src="images/img2.jpg" alt="img">
                             <h3>How to write a book...</h3>
                             <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
-                            <span class="sale">Sale !</span>
+                            <!--<span class="sale">Sale !</span>-->
                             <div class="hover">
                                 <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
                             </div>
@@ -122,6 +115,7 @@
                 </div>
             </div>
         </div>
+        
     </section>
 <?php
 	include 'inc/footer.php';

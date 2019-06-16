@@ -4,9 +4,9 @@
                 <div class="col-md-4">
                     <div class="address">
                         <h4>Our Address</h4>
-                        <h6>The BookStore, Chittagong</h6>
+                        <h6>The Book Sharing System, Chittagong</h6>
                         <h6>Call : 800 1234 5678</h6>
-                        <h6>Email : info@bookstore.com</h6>
+                        <h6>Email : info@.com</h6>
                     </div>
                     <div class="timing">
                         <h4>Timing</h4>
@@ -63,7 +63,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h5>(C) 2019. All Rights Reserved. BookStore</h5>
+                        <h5>(C) 2019. All Rights Reserved. </h5>
                     </div>
                     <div class="col-md-6">
                         <div class="share align-middle">
