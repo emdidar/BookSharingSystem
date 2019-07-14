@@ -13,12 +13,10 @@
 
 
 -- Dumping database structure for booksharingsystem
-DROP DATABASE IF EXISTS `booksharingsystem`;
 CREATE DATABASE IF NOT EXISTS `booksharingsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `booksharingsystem`;
 
 -- Dumping structure for table booksharingsystem.tbcategoryinfo
-DROP TABLE IF EXISTS `tbcategoryinfo`;
 CREATE TABLE IF NOT EXISTS `tbcategoryinfo` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vCategoryName` varchar(150) DEFAULT NULL,
@@ -33,8 +31,23 @@ INSERT INTO `tbcategoryinfo` (`iAutoId`, `vCategoryName`) VALUES
 	(2, 'History');
 /*!40000 ALTER TABLE `tbcategoryinfo` ENABLE KEYS */;
 
+-- Dumping structure for table booksharingsystem.tblogin
+CREATE TABLE IF NOT EXISTS `tblogin` (
+  `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
+  `vEmail` varchar(150) DEFAULT NULL,
+  `vPassword` varchar(150) DEFAULT NULL,
+  `vUserType` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`iAutoId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table booksharingsystem.tblogin: ~0 rows (approximately)
+DELETE FROM `tblogin`;
+/*!40000 ALTER TABLE `tblogin` DISABLE KEYS */;
+INSERT INTO `tblogin` (`iAutoId`, `vEmail`, `vPassword`, `vUserType`) VALUES
+	(1, 'admin@gmail.com', '123', 'admin');
+/*!40000 ALTER TABLE `tblogin` ENABLE KEYS */;
+
 -- Dumping structure for table booksharingsystem.tbproductinfo
-DROP TABLE IF EXISTS `tbproductinfo`;
 CREATE TABLE IF NOT EXISTS `tbproductinfo` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vCategory` varchar(50) NOT NULL DEFAULT '0',
