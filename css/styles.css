@@ -1146,3 +1146,12 @@ footer {
     margin-top: 10px; } }
 
 /*# sourceMappingURL=styles.css.map */
+
+.panel-left{
+    background: lightgray
+}
+.list-group-item.active{
+    color: black;
+    background-color: lightskyblue;
+    border-color: lightskyblue;
+}
