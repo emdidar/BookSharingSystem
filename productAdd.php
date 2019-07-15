@@ -18,6 +18,7 @@
                         
                     $vProductName=mysqli_real_escape_string($db->link,$_POST['vProductName']);
                     $vCategory=mysqli_real_escape_string($db->link,$_POST['vCategory']);
+                    $vSharingType=mysqli_real_escape_string($db->link,$_POST['vSharingType']);
                     $vAuthorName=mysqli_real_escape_string($db->link,$_POST['vAuthorName']);
                     $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
                     $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
@@ -25,10 +26,11 @@
                     $vImage2=mysqli_real_escape_string($db->link,$_POST['vImage2']);
                     $vImage3=mysqli_real_escape_string($db->link,$_POST['vImage3']);
                     
-                    $query = "insert into tbProductinfo (vProductName,vCategory,vAuthorName,vUploadBy,vPrice,vImage1,vImage2,vImage3) 
+                    $query = "insert into tbProductinfo (vProductName,vCategory,vSharingType,vAuthorName,vUploadBy,vPrice,vImage1,vImage2,vImage3) 
                             values(
                             '$vProductName',
                             '$vCategory',
+                            '$vSharingType',
                             '$vAuthorName',
                             '$vUploadBy',
                             '$vPrice',
@@ -71,6 +73,16 @@
                                     }
                                 }
                             ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Sharing Type</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="vSharingType">
+                                <option value="Sale">Sale</option>
+                                <option value="Sale">Donate</option>
+                                <option value="Sale">Borrow</option>
                             </select>
                         </div>
                     </div>

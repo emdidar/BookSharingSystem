@@ -1,6 +1,6 @@
 <?php
-    include 'lib/Session.php';
-    Session::init();
+    /*include 'lib/Session.php';
+    Session::init();*/
     include 'lib/Database.php';
 	include 'helpers/Format.php';
 
@@ -65,6 +65,9 @@
                             <li class="navbar-item">
                                 <a href="login.php" class="nav-link">Login</a>
                             </li>
+                            <li class="navbar-item">
+                                <a href="search.php" class="nav-link">Advance Search</a>
+                            </li>
                         </ul>
                         <div class="cart my-2 my-lg-0">
                             <span>
@@ -75,7 +78,6 @@
                             <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">
                             <span class="fa fa-search"></span> 
                         </form>
-                        <span><a href="">Advance Search</a></span>
                     </div>
                 </nav>
             </div>

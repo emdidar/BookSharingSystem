@@ -6,13 +6,13 @@
                         <h4>Our Address</h4>
                         <h6>The Book Sharing System, Chittagong</h6>
                         <h6>Call : 800 1234 5678</h6>
-                        <h6>Email : info@.com</h6>
+                        <h6>Email : booksharinfo@.com</h6>
                     </div>
                     <div class="timing">
                         <h4>Timing</h4>
-                        <h6>Mon - Fri: 7am - 10pm</h6>
-                        <h6>Saturday: 8am - 10pm</h6>
-                        <h6>Sunday: 8am - 11pm</h6>
+                        <h6>Mon - Fri: 9am - 10pm</h6>
+                        <h6>Saturday: 9am - 10pm</h6>
+                        <h6>Sunday: 9am - 10pm</h6>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -21,15 +21,12 @@
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li><a href="about.php">About Us</a></li>
-                            <li><a href="privacy-policy.php">Privacy Policy</a></li>
-                            <li><a href="terms-conditions.php">Terms</a></li>
                             <li><a href="products.php">Products</a></li>
                         </ul>
                     </div>
                     <div class="navigation">
                         <h4>Help</h4>
                         <ul>
-                            <li><a href="">Shipping & Returns</a></li>
                             <li><a href="privacy-policy.php">Privacy</a></li>
                             <li><a href="faq.php">FAQ’s</a></li>
                         </ul>
@@ -82,12 +79,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/owl.carousel.min.js"></script>
     <script src="js/custom.js"></script>
-    
-	//table
-	<script src="js/jquery-3.3.1.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="js/dataTables.bootstrap.min.js"></script>
-
 </body>
 
 </html>

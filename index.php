@@ -14,7 +14,7 @@
                     <div class="item">
                         <img src="images/img1.jpg" alt="img">
                         <h3>how to be a bwase</h3>
-                        <h6><span class="price">$49</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk149</span> / <a href="#">Buy Now</a></h6>
                         <div class="hover">
                             <a href="product-single.php">
                             <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
@@ -26,7 +26,7 @@
                     <div class="item">
                         <img src="images/img2.jpg" alt="img">
                         <h3>How to write a book...</h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk119</span> / <a href="#">Buy Now</a></h6>
                         <!--<span class="sale">Sale !</span>-->
                         <div class="hover">
                             <a href="product-single.php">
@@ -39,7 +39,7 @@
                     <div class="item">
                         <img src="images/img3.jpg" alt="img">
                         <h3>7-day self publish...</h3>
-                        <h6><span class="price">$49</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk149</span> / <a href="#">Buy Now</a></h6>
                         <div class="hover">
                             <a href="product-single.php">
                             <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
@@ -51,7 +51,7 @@
                     <div class="item">
                         <img src="images/img4.jpg" alt="img">
                         <h3>wendy doniger</h3>
-                        <h6><span class="price">$49</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk49</span> / <a href="#">Buy Now</a></h6>
                         <div class="hover">
                             <a href="product-single.php">
                             <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
@@ -68,8 +68,8 @@
         </div>
         <div class="about-content">
             <h2>About Book Sharing System,</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. Lorem Ipsum has been the book. </p>
-            <p>It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
+            <p>To manage book for poor student who can't buy the book.Find nearest books location. </p>
+            <p>To Save money for user.Find those books which are not available in the library</p>
             <div class="btn-sec">
                 <a href="shop.php" class="btn yellow">shop books</a>
                 <a href="login.php" class="btn black">subscriptions</a>
@@ -87,70 +87,70 @@
                     <div class="item">
                         <img src="images/r1.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk219</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
                         <img src="images/r2.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk219</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
                         <img src="images/r3.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk219</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
                         <img src="images/r4.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk219</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
                         <img src="images/r5.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk219</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
                         <img src="images/r1.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk319</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
                         <img src="images/r2.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk319</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
                         <img src="images/r3.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk119</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
                         <img src="images/r4.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk219</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
                         <img src="images/r5.jpg" alt="img">
                         <h3><a href="#">Keepers of the kalachakara</a></h3>
-                        <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
+                        <h6><span class="price">tk219</span> / <a href="#">Buy Now</a></h6>
                     </div>
                 </div>
             </div>

@@ -23,6 +23,10 @@
                                 <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'categoryAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="categoryAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	CategoryInfo</a> </li>
 
                                 <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'productAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="productAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	Product Info</a> </li>
+                                
+								<li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'profile.php'){echo 'active'; }else { echo ''; } ?>"> <a href="profile.php"><i class="fa fa-arrow-circle-o-right"></i>	Profile</a> </li>
+                                
+								<li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'changePassword.php'){echo 'active'; }else { echo ''; } ?>"> <a href="changePassword.php"><i class="fa fa-arrow-circle-o-right"></i>	Change Password</a> </li>
 
                             </ul>
                         </div>
