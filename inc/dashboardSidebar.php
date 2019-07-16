@@ -1,4 +1,10 @@
-    <div class="breadcrumb">
+
+<?php
+    $vUserId=Session::get('snUserId');
+    $vEmployeeName=Session::get('snEmployeeName');
+?>
+
+<div class="breadcrumb">
         <div class="container">
             <a class="breadcrumb-item" href="index.php">Home</a>
             <span class="breadcrumb-item active">Dashboard</span>

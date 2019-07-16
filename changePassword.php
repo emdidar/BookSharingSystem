@@ -8,7 +8,7 @@
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Product Info</h4>
+                <h4 class="card-title">Change Password</h4>
                 <hr>
               <div class="panel-body">
                 <?php
@@ -51,9 +51,15 @@
                 
                 <form class="form-horizontal" action="" method="POST" role="form">
                     <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">User ID: </label>
+                        <div class="col-sm-10">
+                            <input readonly type="text" value="<?php echo $vUserId;?>" class="form-control" placeholder="User ID" name="vUserId" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Old Password</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Name" name="vOldPassword" required>
+                            <input type="text" class="form-control" placeholder="Old Password" name="vOldPassword" required>
                         </div>
                     </div>
 
