@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.1.38-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win64
--- HeidiSQL Version:             10.1.0.5464
+-- Server version:               10.1.31-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win32
+-- HeidiSQL Version:             9.5.0.5278
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -37,17 +37,25 @@ INSERT INTO `tbcategoryinfo` (`iAutoId`, `vCategoryName`) VALUES
 DROP TABLE IF EXISTS `tblogin`;
 CREATE TABLE IF NOT EXISTS `tblogin` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
+  `vEmployeeName` varchar(50) DEFAULT NULL,
+  `vGender` varchar(150) DEFAULT NULL,
+  `vAddress` varchar(250) DEFAULT NULL,
+  `vMobile` varchar(50) DEFAULT NULL,
   `vEmail` varchar(150) DEFAULT NULL,
+  `vNationalId` varchar(250) DEFAULT NULL,
+  `vImage` varchar(250) DEFAULT NULL,
   `vPassword` varchar(150) DEFAULT NULL,
   `vUserType` varchar(150) DEFAULT NULL,
+  `vStatus` varchar(150) DEFAULT 'active',
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tblogin: ~0 rows (approximately)
+-- Dumping data for table booksharingsystem.tblogin: ~2 rows (approximately)
 DELETE FROM `tblogin`;
 /*!40000 ALTER TABLE `tblogin` DISABLE KEYS */;
-INSERT INTO `tblogin` (`iAutoId`, `vEmail`, `vPassword`, `vUserType`) VALUES
-	(1, 'admin@gmail.com', '123', 'admin');
+INSERT INTO `tblogin` (`iAutoId`, `vEmployeeName`, `vGender`, `vAddress`, `vMobile`, `vEmail`, `vNationalId`, `vImage`, `vPassword`, `vUserType`, `vStatus`) VALUES
+	(1, 'admin', 'Male', 'GEC', '01829656582', 'admin@gmail.com', '123', 'Chrysanthemum.jpg', '123', 'admin', 'active'),
+	(2, 'Soybal', 'Male', 'GEC', '01829663628', 's@gmail.com', '111', 'Chrysanthemum.jpg', 's', 'general', 'active');
 /*!40000 ALTER TABLE `tblogin` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbproductinfo
@@ -66,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `tbproductinfo` (
   PRIMARY KEY (`iAutoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbproductinfo: ~1 rows (approximately)
+-- Dumping data for table booksharingsystem.tbproductinfo: ~2 rows (approximately)
 DELETE FROM `tbproductinfo`;
 /*!40000 ALTER TABLE `tbproductinfo` DISABLE KEYS */;
 INSERT INTO `tbproductinfo` (`iAutoId`, `vCategory`, `vSharingType`, `vProductName`, `vAuthorName`, `vUploadBy`, `vPrice`, `vImage1`, `vImage2`, `vImage3`) VALUES
