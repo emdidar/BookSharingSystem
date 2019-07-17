@@ -30,22 +30,25 @@ public static function get($key){
 
 public static function checkSession(){
   self::init();
-  if (self::get("adminlogin")== false) {
+  if (self::get("login")== false) {
    self::destroy();
-   header("Location:login.php");
+   //header("Location:login.php");
+      echo "<script>location='login.php'</script>";
   }
 }
 
 public static function checkLogin(){
   self::init();
-  if (self::get("adminlogin")== true) {
-   header("Location:dashbord.php");
+  if (self::get("login")== true) {
+   //header("Location:dashbord.php");
+      echo "<script>location='dashboard.php'</script>";
   }
 }
 
 public static function destroy(){
   session_destroy();
-  header("Location:login.php");
+  //header("Location:login.php");
+    echo "<script>location='dashboard.php'</script>";
   }
 }
 ?>

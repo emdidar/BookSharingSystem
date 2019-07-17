@@ -62,9 +62,29 @@
                             <li class="navbar-item">
                                 <a href="faq.php" class="nav-link">FAQ</a>
                             </li>
+                            <?php
+                                $login = Session::get("login");
+                                if($login==true)
+                                {?>
+                                    <li class="navbar-item">
+                                            <a href="dashboard.php" class="nav-link">Dashboard</a>
+                                    </li>
+                            <?php } ?>
+                            
                             <li class="navbar-item">
-                                <a href="login.php" class="nav-link">Login</a>
+                                <?php
+                                $login = Session::get("login");
+                                if($login==false)
+                                {?>
+                                    <a href="login.php" class="nav-link">Login</a>
+                                <?php } else { ?>
+                                    <a href="?cid=<?php Session::get('snUserId')?>" class="nav-link"> Logout</a>
+                                <?php } ?>
                             </li>
+                            
+                            
+                            
+                            
                             <li class="navbar-item">
                                 <a href="search.php" class="nav-link">Advance Search</a>
                             </li>

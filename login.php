@@ -1,5 +1,6 @@
 <?php
 	include 'inc/header.php';
+    Session::checkLogin();
 ?>
     <div class="breadcrumb">
         <div class="container">
@@ -31,7 +32,8 @@
                                 Session::set("snEmployeeName",$value['vEmployeeName']);
                                 Session::set("snUserType",$value['vUserType']);
                                 Session::set("snEmail",$value['vEmail']);
-                                header("Location:dashboard.php");
+                                //header ("Location: dashboard.php");
+                                echo "<script>location='dashboard.php'</script>";
                             }
                             else
                             {
@@ -66,3 +68,4 @@
 <?php
 	include 'inc/footer.php';
 ?>
+<? ob_flush(); ?>

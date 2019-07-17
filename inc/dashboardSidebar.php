@@ -1,7 +1,7 @@
-
 <?php
     $vUserId=Session::get('snUserId');
     $vEmployeeName=Session::get('snEmployeeName');
+    Session::checkSession();
 ?>
 
 <div class="breadcrumb">
