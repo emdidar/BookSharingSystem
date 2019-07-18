@@ -27,13 +27,21 @@
                             $row=mysqli_num_rows($result);
                             if($row>0)
                             {
-                                Session::set("login",true);
-                                Session::set("snUserId",$value['iAutoId']);
-                                Session::set("snEmployeeName",$value['vEmployeeName']);
-                                Session::set("snUserType",$value['vUserType']);
-                                Session::set("snEmail",$value['vEmail']);
-                                //header ("Location: dashboard.php");
-                                echo "<script>location='dashboard.php'</script>";
+                                if($value['vStatus']=="active")
+                                {
+                                    Session::set("login",true);
+                                    Session::set("snUserId",$value['iAutoId']);
+                                    Session::set("snEmployeeName",$value['vEmployeeName']);
+                                    Session::set("snUserType",$value['vUserType']);
+                                    Session::set("snEmail",$value['vEmail']);
+                                    Session::set("snPassword",$value['vPassword']);
+                                    //header ("Location: dashboard.php");
+                                    echo "<script>location='dashboard.php'</script>";
+                                }
+                                else
+                                {
+                                    echo "<span style='color:red;font-size:18px;'>Your Account is not active. Please contact with Admin !!</span>";
+                                }
                             }
                             else
                             {
@@ -42,7 +50,7 @@
                         }
                         else
                         {
-                            echo "<span style='color:red;font-size:18px;'>Username or Passsword not matched !!</span>";
+                            echo "<span style='color:red;font-size:18px;'>Email or Passsword not matched !!</span>";
                         }
                     }
                 ?>

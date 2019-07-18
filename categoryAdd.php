@@ -69,7 +69,7 @@
                             <tr>
                                 <td><?php echo $i; ?></td>
                                 <td><?php echo $result['vCategoryName']; ?></td>
-                                <td><a href="categoryinfoEdit.php?id=<?php echo $result['iAutoId'];?>">Edit</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="categoryinfoDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
+                                <td><a href="categoryinfoEdit.php?id=<?php echo $result['iAutoId'];?>">Edit</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="categoryDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
                             </tr>
                            <?php $i++;
                             }

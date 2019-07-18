@@ -22,9 +22,38 @@
                     $vAuthorName=mysqli_real_escape_string($db->link,$_POST['vAuthorName']);
                     $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
                     $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
-                    $vImage1=mysqli_real_escape_string($db->link,$_POST['vImage1']);
-                    $vImage2=mysqli_real_escape_string($db->link,$_POST['vImage2']);
-                    $vImage3=mysqli_real_escape_string($db->link,$_POST['vImage3']);
+		
+                    $file_name1 = $_FILES['image1']['name'];
+                    $file_temp1 = $_FILES['image1']['tmp_name'];
+
+                    $div1 = explode('.', $file_name1);
+                    $file_ext1 = strtolower(end($div1));
+                    $unique_image1 = "imgOne".substr(md5(time()), 0, 10).'.'.$file_ext1;
+                    $uploaded_image1 = "images/upload/".$unique_image1;
+                    move_uploaded_file($file_temp1, $uploaded_image1);
+                    
+                    
+		
+                    $file_name2 = $_FILES['image2']['name'];
+                    $file_temp2 = $_FILES['image2']['tmp_name'];
+
+                    $div2 = explode('.', $file_name2);
+                    $file_ext2 = strtolower(end($div2));
+                    $unique_image2 = "imgTwo".substr(md5(time()), 0, 10).'.'.$file_ext2;
+                    $uploaded_image2 = "images/upload/".$unique_image2;
+                    move_uploaded_file($file_temp2, $uploaded_image2);
+                    
+                    
+		
+                    $file_name3 = $_FILES['image3']['name'];
+                    $file_temp3 = $_FILES['image3']['tmp_name'];
+
+                    $div3 = explode('.', $file_name3);
+                    $file_ext3 = strtolower(end($div3));
+                    $unique_image3 = "imgThree".substr(md5(time()), 0, 10).'.'.$file_ext3;
+                    $uploaded_image3 = "images/upload/".$unique_image3;
+                    move_uploaded_file($file_temp3, $uploaded_image3);
+                    
                     
                     $query = "insert into tbProductinfo (vProductName,vCategory,vSharingType,vAuthorName,vUploadBy,vPrice,vImage1,vImage2,vImage3) 
                             values(
@@ -34,9 +63,9 @@
                             '$vAuthorName',
                             '$vUploadBy',
                             '$vPrice',
-                            '$vImage1',
-                            '$vImage2',
-                            '$vImage3')";
+                            '$uploaded_image1',
+                            '$uploaded_image2',
+                            '$uploaded_image3')";
 
                     $dataInsert = $db->insert($query);
                     if ($dataInsert) 
@@ -49,7 +78,7 @@
                 }
                 ?>
                 
-                <form class="form-horizontal" action="" method="POST" role="form">
+                <form class="form-horizontal" action="" method="POST" role="form" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Product Name</label>
                         <div class="col-sm-10">
@@ -68,7 +97,7 @@
                                     while($result=$selectData->fetch_assoc())
                                     {
                                 ?>
-                                    <option value="<?php echo $result['iAutoId']; ?>"><?php echo $result['iAutoId'].'-'.$result['vCategoryName']; ?></option>
+                                    <option value="<?php echo $result['iAutoId']; ?>"><?php echo $result['vCategoryName']; ?></option>
                                 <?php
                                     }
                                 }
@@ -81,8 +110,8 @@
                         <div class="col-sm-10">
                             <select class="form-control" name="vSharingType">
                                 <option value="Sale">Sale</option>
-                                <option value="Sale">Donate</option>
-                                <option value="Sale">Borrow</option>
+                                <option value="Donate">Donate</option>
+                                <option value="Borrow">Borrow</option>
                             </select>
                         </div>
                     </div>
@@ -96,7 +125,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Upload By: </label>
                         <div class="col-sm-10">
-                            <input readonly type="text" value="<?php echo $vUserId.'-'.$vEmployeeName;?>" class="form-control" placeholder="Upload By" name="vUploadBy" required>
+                            <input readonly type="text" value="<?php echo $vUserId;?>" class="form-control" placeholder="Upload By" name="vUploadBy" required>
                         </div>
                     </div>
 
@@ -110,9 +139,21 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Images</label>
                         <div class="col-sm-10">
-                            <input type="file" class="form-control" name="vImage1" required>
-                            <input type="file" class="form-control" name="vImage2" required>
-                            <input type="file" class="form-control" name="vImage3" required>
+                            <input type="file" class="form-control" name="image1" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" name="image2" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" name="image3" required>
                         </div>
                     </div>
 
@@ -126,13 +167,19 @@
                         <tr>
                             <th>Product Name</th>
                             <th>Author Name</th>
+                            <th>Sharing Type</th>
                             <th>Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $query="select iAutoId,vProductName,vAuthorName,vPrice from tbProductinfo";
+                            $userId="%";
+                            if($vUserType!='admin')
+                            {
+                                $userId=$vUserId;
+                            }
+                        $query="select iAutoId,vProductName,vAuthorName,vSharingType,vPrice from tbProductinfo where vUploadBy like '$userId' ";
                         $selectData=$db->select($query);
                         if($selectData)
                         {
@@ -143,8 +190,9 @@
                             <tr>
                                 <td><?php echo $result['vProductName']; ?></td>
                                 <td><?php echo $result['vAuthorName']; ?></td>
+                                <td><?php echo $result['vSharingType']; ?></td>
                                 <td><?php echo $result['vPrice']; ?></td>
-                                <td><a href="productinfoEdit.php?id=<?php echo $result['iAutoId'];?>">Edit</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="productinfoDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
+                                <td><a href="productEdit.php?id=<?php echo $result['iAutoId'];?>">Edit</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="productDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
                             </tr>
                            <?php 
                             }
@@ -155,6 +203,7 @@
                         <tr>
                             <th>Product Name</th>
                             <th>Author Name</th>
+                            <th>Sharing Type</th>
                             <th>Price</th>
                             <th>Action</th>
                         </tr>

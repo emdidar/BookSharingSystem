@@ -48,7 +48,7 @@ public static function checkLogin(){
 public static function destroy(){
   session_destroy();
   //header("Location:login.php");
-    echo "<script>location='dashboard.php'</script>";
+    echo "<script>location='login.php'</script>";
   }
 }
 ?>
