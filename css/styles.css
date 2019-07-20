@@ -363,7 +363,7 @@ header .cart {
     .recent-book-sec .item img {
       margin-bottom: 15px;
       max-width: 100%;
-      cursor: pointer; }
+      /*cursor: pointer;*/ }
     .recent-book-sec .item img:hover + h3 {
       text-decoration: underline; }
     .recent-book-sec .item h3 {

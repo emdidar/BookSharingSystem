@@ -66,146 +66,26 @@
             <h2>recently added books to our store</h2>
             <div class="recent-book-sec">
                 <div class="row">
+                    
+                    <?php
+                        $query="select iAutoId,vProductName,vImage1,vPrice from tbProductinfo ";
+                        $data=$db->select($query);
+                        while($productResult=$data->fetch_assoc())
+                        {
+                    ?>
                     <div class="col-md-3">
                         <div class="item">
-                            <img src="images/r1.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk319</span> / <a href="product-single.php">Buy Now</a></h6>
+                            <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><img src="<?php echo $productResult['vImage1']; ?>" alt="img"></a>
+                        
+                            <h3><a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><?php echo $productResult['vProductName']; ?></a></h3>
+                            
+                            <h6><span class="price">TK <?php echo $productResult['vPrice']; ?></span> / <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a> / <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>">Buy Now</a></h6>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r2.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk119</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r3.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk259</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r4.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk156</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r5.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk319</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r1.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk219</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r2.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk219</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r3.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk319</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r4.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk719</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r5.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk314</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r1.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk190</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r2.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk219</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r3.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk109</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r4.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk119</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r5.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk219</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r1.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk119</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r2.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk319</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r3.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk219</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r4.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk219</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="item">
-                            <img src="images/r5.jpg" alt="img">
-                            <h3><a href="product-single.php">Keepers of the kalachakara</a></h3>
-                            <h6><span class="price">tk219</span> / <a href="product-single.php">Buy Now</a></h6>
-                        </div>
-                    </div>
+                    <?php 
+                        }
+                    ?>
+                    
                 </div>
                 <div class="btn-sec">
                     <button class="btn gray-btn">load More books</button>
