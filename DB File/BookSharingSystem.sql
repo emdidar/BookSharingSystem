@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `tbcategoryinfo` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vCategoryName` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table booksharingsystem.tbcategoryinfo: ~2 rows (approximately)
 DELETE FROM `tbcategoryinfo`;
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `tbproductinfo` (
   PRIMARY KEY (`iAutoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbproductinfo: ~5 rows (approximately)
+-- Dumping data for table booksharingsystem.tbproductinfo: ~6 rows (approximately)
 DELETE FROM `tbproductinfo`;
 /*!40000 ALTER TABLE `tbproductinfo` DISABLE KEYS */;
 INSERT INTO `tbproductinfo` (`iAutoId`, `vCategory`, `vSharingType`, `vProductName`, `vAuthorName`, `vUploadBy`, `vPrice`, `vImage1`, `vImage2`, `vImage3`) VALUES
@@ -84,7 +84,7 @@ INSERT INTO `tbproductinfo` (`iAutoId`, `vCategory`, `vSharingType`, `vProductNa
 	(27, '1', 'Borrow', '111', '111', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwof5d4c9a2fd.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
 	(28, '1', 'Donate', '111', '111', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwof5d4c9a2fd.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
 	(29, '1', 'Borrow', '111', '111', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwof5d4c9a2fd.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
-	(30, '1', 'Sale', '111', '111', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwof5d4c9a2fd.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg');
+	(30, '1', 'Sale', '111', '111', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwo0a8e8bbfe5.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg');
 /*!40000 ALTER TABLE `tbproductinfo` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
