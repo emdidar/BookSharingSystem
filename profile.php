@@ -8,7 +8,7 @@
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Product Info</h4>
+                <h4 class="card-title">Profile</h4>
                 <hr>
               <div class="panel-body">
                 <?php

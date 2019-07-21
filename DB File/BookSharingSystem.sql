@@ -75,11 +75,11 @@ CREATE TABLE IF NOT EXISTS `tbproductinfo` (
   PRIMARY KEY (`iAutoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbproductinfo: ~6 rows (approximately)
+-- Dumping data for table booksharingsystem.tbproductinfo: ~5 rows (approximately)
 DELETE FROM `tbproductinfo`;
 /*!40000 ALTER TABLE `tbproductinfo` DISABLE KEYS */;
 INSERT INTO `tbproductinfo` (`iAutoId`, `vCategory`, `vSharingType`, `vProductName`, `vAuthorName`, `vUploadBy`, `vPrice`, `vImage1`, `vImage2`, `vImage3`) VALUES
-	(24, '1', 'Sale', '1', '1', '2', 1, 'images/upload/imgOne74f5cde606.jpg', 'images/upload/imgTwo74f5cde606.jpg', 'images/upload/imgThree74f5cde606.jpg'),
+	(24, '1', 'Sale', '1', '1', '1', 1, 'images/upload/imgOne74f5cde606.jpg', 'images/upload/imgTwo74f5cde606.jpg', 'images/upload/imgThree74f5cde606.jpg'),
 	(26, '1', 'Donate', '111', '111', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwof5d4c9a2fd.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
 	(27, '1', 'Borrow', '111', '111', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwof5d4c9a2fd.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
 	(28, '1', 'Donate', '111', '111', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwof5d4c9a2fd.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
