@@ -17,8 +17,6 @@
                 {
                         
                     $vCategoryName=mysqli_real_escape_string($db->link,$_POST['vCategoryName']);
-                    
-
 
                     $query = "insert into tbcategoryinfo (vCategoryName) 
                             values('$vCategoryName')";

@@ -1,15 +1,33 @@
 <?php
 	include 'inc/header.php';
 ?>
+<?php
+	if(!isset($_GET['id']) || $_GET['id']==NULL)
+	{
+		header("Location:index.php");
+	}
+	else
+	{
+		$id=$_GET['id'];
+        $categoryId="";
+	}
+?>
     <div class="breadcrumb">
         <div class="container">
             <a class="breadcrumb-item" href="index.php">Home</a>
-            <span class="breadcrumb-item active">Terms and Condition</span>
+            <span class="breadcrumb-item active">Product</span>
         </div>
     </div>
     <section class="product-sec">
         <div class="container">
-            <h1>7 Day Self publish How to Write a Book</h1>
+        <?php
+            $query="select *,(select vEmployeeName from tbLogin where iAutoId=a.vUploadBy)vEmployeeName from tbProductinfo a where iAutoId='$id' order by iAutoId desc";
+            $data=$db->select($query);
+            while($productResult=$data->fetch_assoc())
+            {
+                $categoryId=$productResult['vCategory'];
+        ?> 
+            <h1><?php echo $productResult['vProductName'];?></h1>
             <div class="row">
                 <div class="col-md-6 slider-sec">
                     <!-- main slider carousel -->
@@ -17,30 +35,30 @@
                         <!-- main slider carousel items -->
                         <div class="carousel-inner">
                             <div class="active item carousel-item" data-slide-number="0">
-                                <img src="images/product1.jpg" class="img-fluid">
+                                <img src="<?php echo $productResult['vImage1'];?>" class="img-fluid">
                             </div>
                             <div class="item carousel-item" data-slide-number="1">
-                                <img src="images/product2.jpg" class="img-fluid">
+                                <img src="<?php echo $productResult['vImage2'];?>" class="img-fluid">
                             </div>
                             <div class="item carousel-item" data-slide-number="2">
-                                <img src="images/product3.jpg" class="img-fluid">
+                                <img src="<?php echo $productResult['vImage3'];?>" class="img-fluid">
                             </div>
                         </div>
                         <!-- main slider carousel nav controls -->
                         <ul class="carousel-indicators list-inline">
                             <li class="list-inline-item active">
                                 <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
-                                <img src="images/product1.jpg" class="img-fluid">
+                                <img src="<?php echo $productResult['vImage1'];?>" class="img-fluid">
                             </a>
                             </li>
                             <li class="list-inline-item">
                                 <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
-                                <img src="images/product2.jpg" class="img-fluid">
+                                <img src="<?php echo $productResult['vImage2'];?>" class="img-fluid">
                             </a>
                             </li>
                             <li class="list-inline-item">
                                 <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
-                                <img src="images/product3.jpg" class="img-fluid">
+                                <img src="<?php echo $productResult['vImage3'];?>" class="img-fluid">
                             </a>
                             </li>
                         </ul>
@@ -48,22 +66,58 @@
                     <!--/main slider carousel-->
                 </div>
                 <div class="col-md-6 slider-content">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and Scrambled it to make a type and typesetting industry. Lorem Ipsum has been the book. </p>
-                    <p>t has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
-                    <p><span>Author Name: </span> Md. Kutub Uddin</p>
-                    <p><span>Upload by: </span> Bahar</p>
-                    <ul>
-                        <li>
-                            <span class="name">Price</span><span class="clm">:</span>
-                            <span class="price final">250 Tk</span>
-                        </li>
-                    </ul>
-                    <div class="btn-sec">
-                        <button class="btn ">Add To cart</button>
-                        <button class="btn black">Buy Now</button>
-                    </div>
+                    <?php
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                    {
+                        if($_POST['mybutton'] == 'addToCart')
+                        {
+                            $vProductId=mysqli_real_escape_string($db->link,$_POST['vProductId']);
+                            $vProductName=mysqli_real_escape_string($db->link,$_POST['vProductName']);
+                            $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
+                            $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
+
+                            $query = "insert into tbcart (vUserIp,vProductId,vProductName,vUploadBy,vPrice) 
+                                    values('$vUserIp','$vProductId','$vProductName','$vUploadBy','$vPrice')";
+
+                            $dataInsert = $db->insert($query);
+                            if ($dataInsert) 
+                            {
+                                echo "<script>location='cart.php'</script>";
+                            } 
+                            else {
+                                echo "<script>location='index.php'</script>";
+                            }
+                        }
+                        elseif($_POST['mybutton'] == 'buyNow')
+                        {
+                          
+                        }
+                    }
+                    ?>
+                    <form action="" method="post">
+                        <p><?php echo $productResult['vDescription'];?></p>
+                        <p><span>Author Name: </span> <?php echo $productResult['vAuthorName'];?></p>
+                        <p><span>Upload by: </span><a href="userProfile.php?id=<?php echo $productResult['vUploadBy'];?>"><?php echo $productResult['vEmployeeName'];?></a>  </p>
+                        <ul>
+                            <li>
+                                <span class="name">Price</span><span class="clm">:</span>
+                                <span class="price final"><?php echo $productResult['vPrice'];?> Tk</span>
+                            </li>
+                        </ul>
+                        <input type="hidden" name="vProductId" value="<?php echo $productResult['iAutoId']; ?>"/>
+                        <input type="hidden" name="vProductName" value="<?php echo $productResult['vProductName']; ?>"/>
+                        <input type="hidden" name="vAuthorName" value="<?php echo $productResult['vAuthorName']; ?>"/>
+                        <input type="hidden" name="vUploadBy" value="<?php echo $productResult['vUploadBy']; ?>"/>
+				        <input type="hidden" name="vPrice" value="<?php echo $productResult['vPrice']; ?>"/>
+                        
+                        <div class="btn-sec">
+                            <button type="submit" name="mybutton" id="addToCart" value="addToCart" class="btn ">Add To cart</button>
+                            <button type="submit" name="mybutton" id="buyNow" value="buyNow" class="btn black">Buy Now</button>
+                        </div>                    
+                    </form>
                 </div>
             </div>
+            <?php }?>
         </div>
     </section>
     <section class="related-books">
@@ -71,47 +125,25 @@
             <h2>You may also like these book</h2>
             <div class="recomended-sec">
                 <div class="row">
+                <?php
+                    $query="select * from tbProductinfo where vCategory='$categoryId' and iAutoId!='$id' limit 4";
+                    $data=$db->select($query);
+                    while($productResult=$data->fetch_assoc())
+                    {
+                ?> 
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
-                            <img src="images/img1.jpg" alt="img">
-                            <h3>how to be a bwase</h3>
-                            <h6><span class="price">$49</span> / <a href="#">Buy Now</a></h6>
+                            <img src="<?php echo $productResult['vImage1'];?>" alt="img">
+                            <h3><?php echo $productResult['vProductName'];?></h3>
+                            <h6><span class="price"><?php echo $productResult['vPrice'];?> tk</span></h6>
                             <div class="hover">
-                                <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                                <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img2.jpg" alt="img">
-                            <h3>How to write a book...</h3>
-                            <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
-                            <!--<span class="sale">Sale !</span>-->
-                            <div class="hover">
-                                <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img3.jpg" alt="img">
-                            <h3>7-day self publish...</h3>
-                            <h6><span class="price">$49</span> / <a href="#">Buy Now</a></h6>
-                            <div class="hover">
-                                <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img4.jpg" alt="img">
-                            <h3>wendy doniger</h3>
-                            <h6><span class="price">$49</span> / <a href="#">Buy Now</a></h6>
-                            <div class="hover">
-                                <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                            </div>
-                        </div>
-                    </div>
+                <?php
+                    }
+                ?>
                 </div>
             </div>
         </div>

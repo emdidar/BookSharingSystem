@@ -15,6 +15,44 @@
 ?>
 
 <?php
+    function getUserIP()
+    {
+        // Get real visitor IP behind CloudFlare network
+        if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+                  $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+                  $_SERVER['HTTP_CLIENT_IP'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+        }
+        $client  = @$_SERVER['HTTP_CLIENT_IP'];
+        $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+        $remote  = $_SERVER['REMOTE_ADDR'];
+
+        if(filter_var($client, FILTER_VALIDATE_IP))
+        {
+            $ip = $client;
+        }
+        elseif(filter_var($forward, FILTER_VALIDATE_IP))
+        {
+            $ip = $forward;
+        }
+        else
+        {
+            $ip = $remote;
+        }
+
+        return $ip;
+    }
+    $vUserIp = getUserIP();
+
+    $iCartValue=0;
+    $query="select count(iAutoId)iCartValue from tbcart where vUserIp='$vUserIp' ";
+    $data=$db->select($query);
+    while($productResult=$data->fetch_assoc())
+    {
+        $iCartValue=$productResult['iCartValue'];
+    }
+?>
+
+<?php
     header("Cache-Control: no-cache, must-revalidate");
     header("Pragma: no-cache"); 
     header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
@@ -69,7 +107,7 @@
                             <li class="navbar-item cart">
                                 <a href="cart.php" class="nav-link">
                                 <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                                <span class="quntity">3</span>Cart</a>
+                                <span class="quntity"><?php echo $iCartValue;?></span>Cart</a>
                             </li>
                             <?php
                                 $login = Session::get("login");

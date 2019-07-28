@@ -17,18 +17,25 @@
                 {
                     $vUserId=mysqli_real_escape_string($db->link,$_POST['vUserId']);
                     $vOldPassword=mysqli_real_escape_string($db->link,$_POST['vOldPassword']);
+                    $vTypeOldPassword=mysqli_real_escape_string($db->link,$_POST['vTypeOldPassword']);
                     $vNewPassword=mysqli_real_escape_string($db->link,$_POST['vNewPassword']);
                     
-                    $query = "update tblogin set vPassword='$vNewPassword' where iAutoId='$vUserId' ";
-
-                    $data = $db->update($query);
-                    if ($data) 
+                    if($vOldPassword==$vNewPassword)
                     {
-                        $_SESSION['snPassword'] = $vNewPassword;
-                        echo "<span style='color:green;font-size:18px;'>Product Information Update Successfully.</span>";
+                        $query = "update tblogin set vPassword='$vNewPassword' where iAutoId='$vUserId' ";
+
+                        $data = $db->update($query);
+                        if ($data) 
+                        {
+                            $_SESSION['snPassword'] = $vNewPassword;
+                            echo "<span style='color:green;font-size:18px;'>All Information Update Successfully.</span>";
+                        } 
+                        else {
+                            echo "<span style='color:red;font-size:18px;'>All Information Not Update !</span>";
+                        }
                     } 
                     else {
-                        echo "<span style='color:red;font-size:18px;'>Product Information Not Update !</span>";
+                        echo "<span style='color:red;font-size:18px;'>Old Password is not matched !</span>";
                     }
                 }
                 ?>
@@ -51,6 +58,12 @@
                         <label class="col-sm-2 col-form-label">Old Password</label>
                         <div class="col-sm-10">
                             <input readonly type="password" value="<?php echo $result['vPassword']; ?>" class="form-control" name="vOldPassword" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Old Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name="vTypeOldPassword" required>
                         </div>
                     </div>
 

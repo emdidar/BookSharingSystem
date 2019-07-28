@@ -48,6 +48,7 @@
                     $vCategory=mysqli_real_escape_string($db->link,$_POST['vCategory']);
                     $vSharingType=mysqli_real_escape_string($db->link,$_POST['vSharingType']);
                     $vAuthorName=mysqli_real_escape_string($db->link,$_POST['vAuthorName']);
+                    $vDescription=mysqli_real_escape_string($db->link,$_POST['vDescription']);
                     $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
                     $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
 		
@@ -91,7 +92,7 @@
                         set vImage1='$uploaded_image1' where iAutoId='$editid' ";
                         $dataUpdate = $db->update($query);
                     }
-                    else if(!empty($file_name2))
+                    if(!empty($file_name2))
                     {
                         if (file_exists($tmpImage2)) 
                         {
@@ -102,7 +103,7 @@
                         set vImage2='$uploaded_image2' where iAutoId='$editid' ";
                         $dataUpdate = $db->update($query);
                     }
-                    else if(!empty($file_name3))
+                    if(!empty($file_name3))
                     {
                         if (file_exists($tmpImage3)) 
                         {
@@ -113,13 +114,13 @@
                         set vImage3='$uploaded_image3' where iAutoId='$editid' ";
                         $dataUpdate = $db->update($query);
                     }
-                    else 
-                    {
-                        $query = "update tbProductinfo 
+                    
+                    $query = "update tbProductinfo 
                         set vProductName='$vProductName', 
                         vCategory='$vCategory', 
                         vSharingType='$vSharingType', 
                         vAuthorName='$vAuthorName', 
+                        vDescription='$vDescription', 
                         vUploadBy='$vUploadBy', 
                         vPrice='$vPrice' where iAutoId='$editid' ";
 
@@ -131,7 +132,6 @@
                         else {
                             echo "<span style='color:red;font-size:18px;'>Product Information Not update !</span>";
                         }
-                    }
                 }
                 ?>
                   
@@ -203,6 +203,13 @@
                         <label class="col-sm-2 col-form-label">Author Name</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" value="<?php echo $productResult['vAuthorName']; ?>" name="vAuthorName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10">
+                            <textarea name="vDescription" class="form-control" rows="5"><?php echo htmlentities($productResult['vDescription']); ?> </textarea>
                         </div>
                     </div>
                     <div class="form-group row">

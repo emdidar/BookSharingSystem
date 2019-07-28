@@ -16,32 +16,33 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <div class="panel panel-basic">
-                        <div class="panel-heading">
-                            <!--<h3 class="panel-title">Hello <? /*php echo $vEmployeeName; */ ?></h3>-->
-                        </div>
-                        <div class="panel-body">
-                        <?php
-                            $hidden="hidden";
-                            if($vUserType=='admin')
-                            {
-                                $hidden="";
-                            }
-                        ?>
-                            <ul class="list-group">
-                                <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'dashboard.php'){echo 'active'; }else { echo ''; } ?>"> <a href="dashboard.php"><i class="fa fa-home"></i>	Dashboard</a> </li>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 style="font-size: 15px; " class="card-title">Menu : Login as <?php echo $vUserType ?> ( <?php echo $vUserId ?> )</h4>
+                            <hr>
+                            <div class="panel-body">
+                            <?php
+                                $hidden="hidden";
+                                if($vUserType=='admin')
+                                {
+                                    $hidden="";
+                                }
+                            ?>
+                                <ul class="list-group">
+                                    <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'dashboard.php'){echo 'active'; }else { echo ''; } ?>"> <a href="dashboard.php"><i class="fa fa-home"></i>	Dashboard</a> </li>
 
-                                <li <?php echo $hidden; ?> class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'employeeList.php'){echo 'active'; }else { echo ''; } ?>"> <a href="employeeList.php"><i class="fa fa-arrow-circle-o-right"></i>	EmployeeList</a> </li>
+                                    <li <?php echo $hidden; ?> class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'employeeList.php'){echo 'active'; }else { echo ''; } ?>"> <a href="employeeList.php"><i class="fa fa-arrow-circle-o-right"></i>	EmployeeList</a> </li>
 
-                                <li <?php echo $hidden; ?> class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'categoryAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="categoryAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	CategoryInfo</a> </li>
+                                    <li <?php echo $hidden; ?> class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'categoryAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="categoryAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	CategoryInfo</a> </li>
 
-                                <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'productAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="productAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	Product Info</a> </li>
-                                
-								<li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'profile.php'){echo 'active'; }else { echo ''; } ?>"> <a href="profile.php"><i class="fa fa-arrow-circle-o-right"></i>	Profile</a> </li>
-                                
-								<li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'changePassword.php'){echo 'active'; }else { echo ''; } ?>"> <a href="changePassword.php"><i class="fa fa-arrow-circle-o-right"></i>	Change Password</a> </li>
+                                    <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'productAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="productAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	Product Info</a> </li>
 
-                            </ul>
+                                    <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'profile.php'){echo 'active'; }else { echo ''; } ?>"> <a href="profile.php"><i class="fa fa-arrow-circle-o-right"></i>	Profile</a> </li>
+
+                                    <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'changePassword.php'){echo 'active'; }else { echo ''; } ?>"> <a href="changePassword.php"><i class="fa fa-arrow-circle-o-right"></i>	Change Password</a> </li>
+
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
