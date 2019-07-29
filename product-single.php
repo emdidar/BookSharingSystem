@@ -69,7 +69,7 @@
                     <?php
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') 
                     {
-                        if($_POST['mybutton'] == 'addToCart')
+                        if($_POST['mybutton'] == 'buyNow')
                         {
                             $vProductId=mysqli_real_escape_string($db->link,$_POST['vProductId']);
                             $vProductName=mysqli_real_escape_string($db->link,$_POST['vProductName']);
@@ -87,10 +87,6 @@
                             else {
                                 echo "<script>location='index.php'</script>";
                             }
-                        }
-                        elseif($_POST['mybutton'] == 'buyNow')
-                        {
-                          
                         }
                     }
                     ?>
@@ -111,8 +107,7 @@
 				        <input type="hidden" name="vPrice" value="<?php echo $productResult['vPrice']; ?>"/>
                         
                         <div class="btn-sec">
-                            <button type="submit" name="mybutton" id="addToCart" value="addToCart" class="btn ">Add To cart</button>
-                            <button type="submit" name="mybutton" id="buyNow" value="buyNow" class="btn black">Buy Now</button>
+                            <button type="submit" name="mybutton" id="buyNow" value="buyNow" class="btn ">Buy Now</button>
                         </div>                    
                     </form>
                 </div>

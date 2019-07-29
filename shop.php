@@ -68,7 +68,7 @@
                 <div class="row">
                     
                     <?php
-                        $query="select iAutoId,vProductName,vImage1,vPrice from tbProductinfo ";
+                        $query="select iAutoId,vProductName,vImage1,vPrice from tbProductinfo limit 20";
                         $data=$db->select($query);
                         while($productResult=$data->fetch_assoc())
                         {
@@ -79,7 +79,7 @@
                         
                             <h3><a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><?php echo $productResult['vProductName']; ?></a></h3>
                             
-                            <h6><span class="price">TK <?php echo $productResult['vPrice']; ?></span> / <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a> / <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>">Buy Now</a></h6>
+                            <h6><span class="price">TK <?php echo $productResult['vPrice']; ?></span> / <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>">View</a></h6>
                         </div>
                     </div>
                     <?php 

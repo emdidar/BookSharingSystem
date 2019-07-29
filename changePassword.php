@@ -57,7 +57,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Old Password</label>
                         <div class="col-sm-10">
-                            <input readonly type="password" value="<?php echo $result['vPassword']; ?>" class="form-control" name="vOldPassword" required>
+                            <input hidden readonly type="password" value="<?php echo $result['vPassword']; ?>" class="form-control" name="vOldPassword" required>
                         </div>
                     </div>
                     <div class="form-group row">

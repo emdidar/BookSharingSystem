@@ -69,7 +69,7 @@
     <meta name="theme-color" content="#03a6f3">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/styles.css">
     
@@ -101,14 +101,11 @@
                             <li class="navbar-item">
                                 <a href="faq.php" class="nav-link">FAQ</a>
                             </li>
-                            <li class="navbar-item">
-                                <a href="search.php" class="nav-link">Search</a>
-                            </li>
-                            <li class="navbar-item cart">
+                            <!--<li class="navbar-item cart">
                                 <a href="cart.php" class="nav-link">
                                 <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                                <span class="quntity"><?php echo $iCartValue;?></span>Cart</a>
-                            </li>
+                                <span class="quntity"><?php /*echo $iCartValue;*/?></span>Cart</a>
+                            </li>-->
                             <?php
                                 $login = Session::get("login");
                                 if($login==true)
@@ -143,12 +140,11 @@
                         
                         
                         <div class="cart my-2 my-lg-0">
-                            
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">
+                                <span class="fa fa-search"></span> 
+                            </form>
                         </div>
-                        <!--<form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">
-                            <span class="fa fa-search"></span> 
-                        </form>-->
                     </div>
                 </nav>
             </div>

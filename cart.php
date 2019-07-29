@@ -44,7 +44,7 @@ $vGrandTotal=0;
                                     <td><?php echo $result['vProductName'];?></td>
                                     <td><img style=" width: 80px; height: 50px;" src="<?php echo $result['vImage1'];?>" alt=""/></td>
                                     <td>Tk. <?php echo $result['vPrice'];?></td>
-                                    <td><a href="cartDelete.php?id=<?php echo $productResult['iAutoId']; ?>">Delete</a></td>
+                                    <td><a href="cartDelete.php?id=<?php echo $result['iAutoId']; ?>">Delete</a></td>
                                 </tr>
                                <?php $i++;
                                 }
@@ -62,13 +62,16 @@ $vGrandTotal=0;
                         </tfoot>
                     </table>
                 </div>
-                <div class="shopping">
-                    <div class="shopleft">
-                        <a href="shop.php"> <img src="images/shop.png" alt="" /></a>
+                <div style="text-align: center;" class="shopping">
+                    <a href="checkout.php"> <img src="images/check.png" alt="" /></a>
+                    
+                    <!--<div class="shopleft">
+                        <a href="checkout.php"> <img src="images/check.png" alt="" /></a>
                     </div>
                     <div class="shopright">
                         <a href="checkout.php"> <img src="images/check.png" alt="" /></a>
-                    </div>
+                        <a href="shop.php"> <img src="images/shop.png" alt="" /></a>
+                    </div>-->
                 </div>
             </div>  
         </div>
