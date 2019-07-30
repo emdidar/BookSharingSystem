@@ -10,7 +10,7 @@
             </div>
             <div class="row">
                 <?php
-                    $query="select iAutoId,vProductName,vImage1,vPrice from tbProductinfo limit 20";
+                    $query="select iAutoId,vProductName,vImage1,vPrice from tbProductinfo where status='active' limit 20";
                     $data=$db->select($query);
                     while($productResult=$data->fetch_assoc())
                     {

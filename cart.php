@@ -22,29 +22,27 @@ $vGrandTotal=0;
                                 <th>Product Name</th>
                                 <th>Image</th>
                                 <th>Price</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                                $i=1;
-                                $query="select iAutoId,vUserIp,vProductId,vProductName,
-                                (select vImage1 from tbproductinfo where iAutoId=a.vProductId)vImage1,vUploadBy,vPrice 
-                                from tbcart a where vUserIp='$vUserIp' ";
+                        <?php
+                            $i=1;
+                            $query="select iAutoId,vUserIp,vProductId,vProductName,
+                            (select vImage1 from tbproductinfo where iAutoId=a.vProductId)vImage1,vUploadBy,vPrice 
+                            from tbcart a where vUserIp='$vUserIp' ";
                             $selectData=$db->select($query);
                             if($selectData)
                             {
-                                $i=1;
-                                while($result=$selectData->fetch_assoc())
-                                {
-                                    $vGrandTotal=$vGrandTotal+$result['vPrice'];
-                            ?>
+                                    $i=1;
+                                    while($result=$selectData->fetch_assoc())
+                                    {
+                                        $vGrandTotal=$vGrandTotal+$result['vPrice'];
+                                ?>
                                 <tr>
                                     <td><?php echo $i;?></td>
                                     <td><?php echo $result['vProductName'];?></td>
                                     <td><img style=" width: 80px; height: 50px;" src="<?php echo $result['vImage1'];?>" alt=""/></td>
                                     <td>Tk. <?php echo $result['vPrice'];?></td>
-                                    <td><a href="cartDelete.php?id=<?php echo $result['iAutoId']; ?>">Delete</a></td>
                                 </tr>
                                <?php $i++;
                                 }
@@ -57,7 +55,6 @@ $vGrandTotal=0;
                                 <th></th>
                                 <th>Grand Total :</th>
                                 <th>Tk. <?php echo $vGrandTotal;?></th>
-                                <th></th>
                             </tr>
                         </tfoot>
                     </table>

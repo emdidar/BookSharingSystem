@@ -8,7 +8,8 @@
 	}
 	else
 	{
-		$id=$_GET['id'];
+		//$id=$_GET['id'];
+		$id=mysqli_real_escape_string($db->link,$_GET['id']);
         $categoryId="";
 	}
 ?>
@@ -71,6 +72,10 @@
                     {
                         if($_POST['mybutton'] == 'buyNow')
                         {
+
+                            $queryDelete="delete from tbcart where vUserIp='$vUserIp'";
+                            $deleteData=$db->delete($queryDelete);
+                            
                             $vProductId=mysqli_real_escape_string($db->link,$_POST['vProductId']);
                             $vProductName=mysqli_real_escape_string($db->link,$_POST['vProductName']);
                             $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
@@ -121,7 +126,7 @@
             <div class="recomended-sec">
                 <div class="row">
                 <?php
-                    $query="select * from tbProductinfo where vCategory='$categoryId' and iAutoId!='$id' limit 4";
+                    $query="select * from tbProductinfo where vCategory='$categoryId' and status='active' and iAutoId!='$id' limit 4";
                     $data=$db->select($query);
                     while($productResult=$data->fetch_assoc())
                     {

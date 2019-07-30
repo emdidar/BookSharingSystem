@@ -43,7 +43,7 @@
                                 <td><?php echo $result['vEmail']; ?></td>
                                 <td><?php echo $result['vUserType']; ?></td>
                                 <td><?php echo $result['vStatus']; ?></td>
-                                <td><a href="productinfoEdit.php?id=<?php echo $result['iAutoId'];?>">Edit</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="productinfoDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
+                                <td><a href="employeeListEdit.php?id=<?php echo $result['iAutoId'];?>">Edit</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="employeeListDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
                             </tr>
                            <?php $i++;
                             }

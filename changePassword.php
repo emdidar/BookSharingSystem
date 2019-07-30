@@ -20,7 +20,7 @@
                     $vTypeOldPassword=mysqli_real_escape_string($db->link,$_POST['vTypeOldPassword']);
                     $vNewPassword=mysqli_real_escape_string($db->link,$_POST['vNewPassword']);
                     
-                    if($vOldPassword==$vNewPassword)
+                    if($vOldPassword==$vTypeOldPassword)
                     {
                         $query = "update tblogin set vPassword='$vNewPassword' where iAutoId='$vUserId' ";
 
@@ -54,10 +54,10 @@
                             <input readonly type="text" value="<?php echo $vUserId;?>" class="form-control" name="vUserId" required>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div hidden class="form-group row">
                         <label class="col-sm-2 col-form-label">Old Password</label>
                         <div class="col-sm-10">
-                            <input hidden readonly type="password" value="<?php echo $result['vPassword']; ?>" class="form-control" name="vOldPassword" required>
+                            <input readonly type="password" value="<?php echo $result['vPassword']; ?>" class="form-control" name="vOldPassword" required>
                         </div>
                     </div>
                     <div class="form-group row">

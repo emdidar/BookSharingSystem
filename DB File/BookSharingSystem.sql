@@ -27,14 +27,13 @@ CREATE TABLE IF NOT EXISTS `tbcart` (
   `vUploadBy` varchar(150) NOT NULL,
   `vPrice` double NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbcart: ~0 rows (approximately)
+-- Dumping data for table booksharingsystem.tbcart: ~1 rows (approximately)
 DELETE FROM `tbcart`;
 /*!40000 ALTER TABLE `tbcart` DISABLE KEYS */;
 INSERT INTO `tbcart` (`iAutoId`, `vUserIp`, `vProductId`, `vProductName`, `vUploadBy`, `vPrice`) VALUES
-	(5, '::1', '26', '111', '2', 4),
-	(6, '::1', '24', '1', '1', 1);
+	(14, '::1', '26', '111', '2', 4);
 /*!40000 ALTER TABLE `tbcart` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbcategoryinfo
@@ -43,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `tbcategoryinfo` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vCategoryName` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table booksharingsystem.tbcategoryinfo: ~2 rows (approximately)
 DELETE FROM `tbcategoryinfo`;
@@ -57,26 +56,30 @@ INSERT INTO `tbcategoryinfo` (`iAutoId`, `vCategoryName`) VALUES
 DROP TABLE IF EXISTS `tblogin`;
 CREATE TABLE IF NOT EXISTS `tblogin` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
+  `vUserType` varchar(150) DEFAULT NULL,
   `vEmployeeName` varchar(50) DEFAULT NULL,
   `vGender` varchar(150) DEFAULT NULL,
-  `vAddress` varchar(250) DEFAULT NULL,
+  `vCountry` varchar(250) DEFAULT NULL,
+  `vCity` varchar(250) DEFAULT NULL,
+  `vZipCode` varchar(250) DEFAULT NULL,
   `vMobile` varchar(50) DEFAULT NULL,
+  `vAddress` varchar(250) DEFAULT NULL,
   `vEmail` varchar(150) DEFAULT NULL,
   `vNationalId` varchar(250) DEFAULT NULL,
   `vImage` varchar(250) DEFAULT NULL,
   `vPassword` varchar(150) DEFAULT NULL,
-  `vUserType` varchar(150) DEFAULT NULL,
   `vStatus` varchar(150) DEFAULT 'active',
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='select vEmployeeName, vGender, vAddress, vMobile, vEmail, vNationalId, vImage, vPassword, vUserType, vStatus from tblogin';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserType, vEmployeeName, vGender, vCountry, vCity, vZipCode, vMobile, vAddress,  vEmail, vNationalId, vImage, vPassword, vStatus from tblogin';
 
--- Dumping data for table booksharingsystem.tblogin: ~3 rows (approximately)
+-- Dumping data for table booksharingsystem.tblogin: ~4 rows (approximately)
 DELETE FROM `tblogin`;
 /*!40000 ALTER TABLE `tblogin` DISABLE KEYS */;
-INSERT INTO `tblogin` (`iAutoId`, `vEmployeeName`, `vGender`, `vAddress`, `vMobile`, `vEmail`, `vNationalId`, `vImage`, `vPassword`, `vUserType`, `vStatus`) VALUES
-	(1, 'admin', 'Male', 'GEC', '01829656582', 'admin@gmail.com', '123', 'Chrysanthemum.jpg', 's', 'admin', 'active'),
-	(2, 'Soybal', 'Male', 'GEC', '01829663628', 's@gmail.com', '111', 'Chrysanthemum.jpg', 's', 'general', 'active'),
-	(3, 'Soybal', 'Male', 'GEC', '01829663628', 'ss@gmail.com', '111', 'Chrysanthemum.jpg', 's', 'general', 'inactive');
+INSERT INTO `tblogin` (`iAutoId`, `vUserType`, `vEmployeeName`, `vGender`, `vCountry`, `vCity`, `vZipCode`, `vMobile`, `vAddress`, `vEmail`, `vNationalId`, `vImage`, `vPassword`, `vStatus`) VALUES
+	(1, 'admin', 'admin', 'Male', NULL, NULL, NULL, '01829656582', 'GEC', 'admin@gmail.com', '123', 'Chrysanthemum.jpg', 's', 'active'),
+	(4, 'user', 'ss', 'Male', '1', '2', '3', '4', '5', 'ss@gmail.com', '6', NULL, 'ss', 'active'),
+	(5, 'Carrier', 'c', NULL, 'c', 'c', 'c', '3', 'c', 'c@gmail.com', NULL, NULL, 'c', 'active'),
+	(6, 'user', 's', 'Male', 's', 's', 's', '11', 's', 's@gmail.com', '32131', NULL, 's', 'active');
 /*!40000 ALTER TABLE `tblogin` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbproductinfo
@@ -93,20 +96,21 @@ CREATE TABLE IF NOT EXISTS `tbproductinfo` (
   `vImage1` varchar(250) DEFAULT NULL,
   `vImage2` varchar(250) DEFAULT NULL,
   `vImage3` varchar(250) DEFAULT NULL,
+  `status` varchar(50) DEFAULT 'active',
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbproductinfo: ~6 rows (approximately)
+-- Dumping data for table booksharingsystem.tbproductinfo: ~7 rows (approximately)
 DELETE FROM `tbproductinfo`;
 /*!40000 ALTER TABLE `tbproductinfo` DISABLE KEYS */;
-INSERT INTO `tbproductinfo` (`iAutoId`, `vCategory`, `vSharingType`, `vProductName`, `vAuthorName`, `vDescription`, `vUploadBy`, `vPrice`, `vImage1`, `vImage2`, `vImage3`) VALUES
-	(24, '1', 'Sale', '1', '1', ' sdfsdfsdfsfsf', '1', 1, 'images/upload/imgOne74f5cde606.jpg', 'images/upload/imgTwo74f5cde606.jpg', 'images/upload/imgThree74f5cde606.jpg'),
-	(26, '1', 'Donate', '111', '111', 'sdfsdfsdfsfsf \r\nsfsdfsdfs  sdf\r\nsf\r\nsf\r\nsf\r\nsf\r\nsdf\r\nsf\r\nsf\r\nsd   ', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwo1a76617dd4.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
-	(27, '1', 'Borrow', '111', '111', ' ', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwo3c6b85c1c5.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
-	(28, '1', 'Donate', '111', '111', ' ', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwoa9276254dd.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
-	(29, '1', 'Borrow', '111', '111', ' ', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwo9aa4b5fcca.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
-	(30, '1', 'Sale', '111', '111', NULL, '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwo0a8e8bbfe5.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg'),
-	(31, '2', 'Donate', 'sfsdf', 'sdfsdfsf', NULL, '2', 12, 'images/upload/imgOneddddf0dd77.jpg', 'images/upload/imgTwoddddf0dd77.jpg', 'images/upload/imgThreeddddf0dd77.jpg');
+INSERT INTO `tbproductinfo` (`iAutoId`, `vCategory`, `vSharingType`, `vProductName`, `vAuthorName`, `vDescription`, `vUploadBy`, `vPrice`, `vImage1`, `vImage2`, `vImage3`, `status`) VALUES
+	(24, '1', 'Sale', '1', '1', ' sdfsdfsdfsfsf', '1', 1, 'images/upload/imgOne74f5cde606.jpg', 'images/upload/imgTwo74f5cde606.jpg', 'images/upload/imgThree74f5cde606.jpg', 'inactive'),
+	(26, '1', 'Donate', '111', '111', 'sdfsdfsdfsfsf \r\nsfsdfsdfs  sdf\r\nsf\r\nsf\r\nsf\r\nsf\r\nsdf\r\nsf\r\nsf\r\nsd   ', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwo1a76617dd4.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg', 'active'),
+	(27, '1', 'Borrow', '111', '111', ' ', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwo3c6b85c1c5.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg', 'active'),
+	(28, '1', 'Donate', '111', '111', ' ', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwoa9276254dd.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg', 'active'),
+	(29, '1', 'Borrow', '111', '111', ' ', '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwo9aa4b5fcca.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg', 'active'),
+	(30, '1', 'Sale', '111', '111', NULL, '2', 4, 'images/upload/imgOne33d43ef678.jpg', 'images/upload/imgTwo0a8e8bbfe5.jpg', 'images/upload/imgThreef5d4c9a2fd.jpg', 'active'),
+	(31, '2', 'Donate', 'sfsdf', 'sdfsdfsf', NULL, '2', 12, 'images/upload/imgOneddddf0dd77.jpg', 'images/upload/imgTwoddddf0dd77.jpg', 'images/upload/imgThreeddddf0dd77.jpg', 'active');
 /*!40000 ALTER TABLE `tbproductinfo` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

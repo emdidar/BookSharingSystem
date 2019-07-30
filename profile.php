@@ -14,23 +14,27 @@
                 <?php
 
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-                {
+                { 
                     $vEmployeeName=mysqli_real_escape_string($db->link,$_POST['vEmployeeName']);
                     $vGender=mysqli_real_escape_string($db->link,$_POST['vGender']);
-                    $vAddress=mysqli_real_escape_string($db->link,$_POST['vAddress']);
+                    $vCountry=mysqli_real_escape_string($db->link,$_POST['vCountry']);
+                    $vCity=mysqli_real_escape_string($db->link,$_POST['vCity']);
+                    $vZipCode=mysqli_real_escape_string($db->link,$_POST['vZipCode']);
                     $vMobile=mysqli_real_escape_string($db->link,$_POST['vMobile']);
+                    $vAddress=mysqli_real_escape_string($db->link,$_POST['vAddress']);
                     $vEmail=mysqli_real_escape_string($db->link,$_POST['vEmail']);
                     $vNationalId=mysqli_real_escape_string($db->link,$_POST['vNationalId']);
-                    $vImage=mysqli_real_escape_string($db->link,$_POST['vImage']);
                     
                     $query = "update tbLogin set 
                         vEmployeeName='$vEmployeeName',
                         vGender='$vGender',
-                        vAddress='$vAddress',
+                        vCountry='$vCountry',
+                        vCity='$vCity',
+                        vZipCode='$vZipCode',
                         vMobile='$vMobile',
+                        vAddress='$vAddress',
                         vEmail='$vEmail',
-                        vNationalId='$vNationalId',
-                        vImage='$vImage' where iAutoId='$vUserId' ";
+                        vNationalId='$vNationalId' where iAutoId='$vUserId' ";
 
                     $data= $db->update($query);
                     if ($data) 
@@ -74,11 +78,23 @@
                             </select>
                         </div>
                     </div>
-
+                    
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Address</label>
+                        <label class="col-sm-2 col-form-label">Country</label>
                         <div class="col-sm-10">
-                            <input type="text" value="<?php echo $result['vAddress']; ?>" class="form-control" placeholder="Address" name="vAddress" required>
+                            <input type="text" value="<?php echo $result['vCountry']; ?>" class="form-control" placeholder="Country" name="vCountry" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">City</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="<?php echo $result['vCity']; ?>" class="form-control" placeholder="City" name="vCity" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Zip Code</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="<?php echo $result['vZipCode']; ?>" class="form-control" placeholder="Zip Code" name="vZipCode" required>
                         </div>
                     </div>
 
@@ -86,6 +102,13 @@
                         <label class="col-sm-2 col-form-label">Mobile</label>
                         <div class="col-sm-10">
                             <input type="text" value="<?php echo $result['vMobile']; ?>" class="form-control" placeholder="Mobile" name="vMobile" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Address</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="<?php echo $result['vAddress']; ?>" class="form-control" placeholder="Address" name="vAddress" required>
                         </div>
                     </div>
 
@@ -100,13 +123,6 @@
                         <label class="col-sm-2 col-form-label">National ID</label>
                         <div class="col-sm-10">
                             <input type="text" value="<?php echo $result['vNationalId']; ?>" class="form-control" placeholder="National ID" name="vNationalId" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Images</label>
-                        <div class="col-sm-10">
-                            <input type="file" value="<?php echo $result['vImage']; ?>" class="form-control" name="vImage" required>
                         </div>
                     </div>
 
