@@ -39,15 +39,21 @@
                     }
                     else
                     {
-                        $query = "insert into tblogin (vUserType, vEmployeeName, vCountry, vCity, vZipCode, vAddress, vMobile, vEmail, vPassword) values('$vUserType', '$vEmployeeName', '$vCountry', '$vCity', '$vZipCode', '$vAddress', '$vMobile', '$vEmail', '$vPassword')";
-
-                        $dataInsert = $db->insert($query);
-                        if ($dataInsert) 
+                        if($vUserType!='Select User Type...')
                         {
-                            echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully.</span>";
-                        } 
+                            $query = "insert into tblogin (vUserType, vEmployeeName, vCountry, vCity, vZipCode, vAddress, vMobile, vEmail, vPassword) values('$vUserType', '$vEmployeeName', '$vCountry', '$vCity', '$vZipCode', '$vAddress', '$vMobile', '$vEmail', '$vPassword')";
+
+                            $dataInsert = $db->insert($query);
+                            if ($dataInsert) 
+                            {
+                                echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully.</span>";
+                            } 
+                            else {
+                                echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
+                            }                            
+                        }
                         else {
-                            echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
+                            echo "<span style='color:red;font-size:18px;'>Please Select User Type !</span>";
                         }
                     }
                 }
@@ -55,7 +61,8 @@
                 <form action="" method="POST">
                     <div class="row">					
                         <div class="col-md-4">
-                            <select class="custom-select" name="vUserType">
+                            <!--oninvalid="this.setCustomValidity('Please Select User type')"-->
+                            <select class="" name="vUserType" required >
 								<option selected>Select User Type...</option>
 								<option value="user">user</option>
 								<option value="carrier">carrier</option>

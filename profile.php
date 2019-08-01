@@ -36,8 +36,8 @@
                         vEmail='$vEmail',
                         vNationalId='$vNationalId' where iAutoId='$vUserId' ";
 
-                    $data= $db->update($query);
-                    if ($data) 
+                    $dataUpdate= $db->update($query);
+                    if ($dataUpdate) 
                     {
                         $_SESSION['snEmployeeName'] = $vEmployeeName;
                         echo "<span style='color:green;font-size:18px;'>All Information Update Successfully.</span>";        

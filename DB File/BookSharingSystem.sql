@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `tbcart` (
   PRIMARY KEY (`iAutoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbcart: ~1 rows (approximately)
+-- Dumping data for table booksharingsystem.tbcart: ~0 rows (approximately)
 DELETE FROM `tbcart`;
 /*!40000 ALTER TABLE `tbcart` DISABLE KEYS */;
 INSERT INTO `tbcart` (`iAutoId`, `vUserIp`, `vProductId`, `vProductName`, `vUploadBy`, `vPrice`) VALUES
@@ -77,8 +77,8 @@ DELETE FROM `tblogin`;
 /*!40000 ALTER TABLE `tblogin` DISABLE KEYS */;
 INSERT INTO `tblogin` (`iAutoId`, `vUserType`, `vEmployeeName`, `vGender`, `vCountry`, `vCity`, `vZipCode`, `vMobile`, `vAddress`, `vEmail`, `vNationalId`, `vImage`, `vPassword`, `vStatus`) VALUES
 	(1, 'admin', 'admin', 'Male', NULL, NULL, NULL, '01829656582', 'GEC', 'admin@gmail.com', '123', 'Chrysanthemum.jpg', 's', 'active'),
-	(4, 'user', 'ss', 'Male', '1', '2', '3', '4', '5', 'ss@gmail.com', '6', NULL, 'ss', 'active'),
-	(5, 'Carrier', 'c', NULL, 'c', 'c', 'c', '3', 'c', 'c@gmail.com', NULL, NULL, 'c', 'active'),
+	(4, 'user', 'u', 'Male', '1', '2', '3', '4', '5', 'u@gmail.com', '6', NULL, 'u', 'active'),
+	(5, 'carrier', 'c', 'Male', 'c', 'c', 'c', '3', 'c', 'c@gmail.com', NULL, NULL, 'c', 'active'),
 	(6, 'user', 's', 'Male', 's', 's', 's', '11', 's', 's@gmail.com', '32131', NULL, 's', 'active');
 /*!40000 ALTER TABLE `tblogin` ENABLE KEYS */;
 
