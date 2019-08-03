@@ -61,14 +61,6 @@ $vGrandTotal=0;
                 </div>
                 <div style="text-align: center;" class="shopping">
                     <a href="checkout.php"> <img src="images/check.png" alt="" /></a>
-                    
-                    <!--<div class="shopleft">
-                        <a href="checkout.php"> <img src="images/check.png" alt="" /></a>
-                    </div>
-                    <div class="shopright">
-                        <a href="checkout.php"> <img src="images/check.png" alt="" /></a>
-                        <a href="shop.php"> <img src="images/shop.png" alt="" /></a>
-                    </div>-->
                 </div>
             </div>  
         </div>

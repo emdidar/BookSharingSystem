@@ -87,7 +87,7 @@
                             $dataInsert = $db->insert($query);
                             if ($dataInsert) 
                             {
-                                echo "<script>location='cart.php'</script>";
+                                echo "<script>location='checkout.php'</script>";
                             } 
                             else {
                                 echo "<script>location='index.php'</script>";

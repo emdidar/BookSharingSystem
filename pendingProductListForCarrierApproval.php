@@ -8,9 +8,8 @@
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Dashboard</h4>
+                <h4 class="card-title">Pending Product List for Carrier Approval</h4>
                 <hr>
-                    <h3>Pending List for Approval</h3>
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>

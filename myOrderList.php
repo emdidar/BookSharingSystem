@@ -8,9 +8,9 @@
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Dashboard</h4>
+                <h4 class="card-title">My Order List</h4>
                 <hr>
-                    <h3>Pending List for Approval</h3>
+                    <p>Pending Request</p>
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
@@ -27,7 +27,7 @@
                             $i=1;
                             $query="select iAutoId,vUserId,vProductId,vProductName,
                             (select vImage1 from tbproductinfo where iAutoId=a.vProductId)vImage1,vUploadBy,vPrice,vStatus 
-                            from tbcheckout a where vUploadBy='$vUserId' ";
+                            from tbcheckout a where vUserId='$vUserId' ";
                             $selectData=$db->select($query);
                             if($selectData)
                             {
@@ -43,7 +43,7 @@
                                     <td><img style=" width: 80px; height: 50px;" src="<?php echo $result['vImage1'];?>" alt=""/></td>
                                     <td>Tk. <?php echo $result['vPrice'];?></td>
                                     <td><?php echo $result['vStatus'];?></td>
-                                    <td><a href="pendingProductForApproval.php?id=<?php echo $result['iAutoId'];?>">VIEW</a></td>
+                                    <td>View</td>
                                 </tr>
                                <?php $i++;
                                 }
