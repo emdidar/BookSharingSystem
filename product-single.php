@@ -11,6 +11,7 @@
 		//$id=$_GET['id'];
 		$id=mysqli_real_escape_string($db->link,$_GET['id']);
         $categoryId="";
+        $vSharingType="";
 	}
 ?>
     <div class="breadcrumb">
@@ -27,6 +28,7 @@
             while($productResult=$data->fetch_assoc())
             {
                 $categoryId=$productResult['vCategory'];
+                $vSharingType=$productResult['vSharingType'];
         ?> 
             <h1><?php echo $productResult['vProductName'];?></h1>
             <div class="row">
@@ -81,8 +83,8 @@
                             $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
                             $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
 
-                            $query = "insert into tbcart (vUserIp,vProductId,vProductName,vUploadBy,vPrice) 
-                                    values('$vUserIp','$vProductId','$vProductName','$vUploadBy','$vPrice')";
+                            $query = "insert into tbcart (vUserIp, vProductId, vProductName, vUploadBy, vPrice, vSharingType, dDate) 
+                                    values('$vUserIp', '$vProductId', '$vProductName', '$vUploadBy', '$vPrice', '$vSharingType',CURDATE() )";
 
                             $dataInsert = $db->insert($query);
                             if ($dataInsert) 
@@ -99,12 +101,10 @@
                         <p><?php echo $productResult['vDescription'];?></p>
                         <p><span>Author Name: </span> <?php echo $productResult['vAuthorName'];?></p>
                         <p><span>Upload by: </span><a href="userProfile.php?id=<?php echo $productResult['vUploadBy'];?>"><?php echo $productResult['vEmployeeName'];?></a>  </p>
-                        <ul>
-                            <li>
-                                <span class="name">Price</span><span class="clm">:</span>
-                                <span class="price final"><?php echo $productResult['vPrice'];?> Tk</span>
-                            </li>
-                        </ul>
+                        <p><span>Sharing Type: </span> <?php echo $productResult['vSharingType'];?></p>
+                        <p><span>price: </span> <?php echo $productResult['vPrice'];?> Tk</p>
+                        
+                        
                         <input type="hidden" name="vProductId" value="<?php echo $productResult['iAutoId']; ?>"/>
                         <input type="hidden" name="vProductName" value="<?php echo $productResult['vProductName']; ?>"/>
                         <input type="hidden" name="vAuthorName" value="<?php echo $productResult['vAuthorName']; ?>"/>

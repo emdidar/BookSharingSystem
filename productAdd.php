@@ -15,13 +15,13 @@
 
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
                 {
-                        
                     $vProductName=mysqli_real_escape_string($db->link,$_POST['vProductName']);
                     $vCategory=mysqli_real_escape_string($db->link,$_POST['vCategory']);
                     $vSharingType=mysqli_real_escape_string($db->link,$_POST['vSharingType']);
                     $vAuthorName=mysqli_real_escape_string($db->link,$_POST['vAuthorName']);
                     $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
                     $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
+                    $vDescription=mysqli_real_escape_string($db->link,$_POST['vDescription']);
 		
                     $file_name1 = $_FILES['image1']['name'];
                     $file_temp1 = $_FILES['image1']['tmp_name'];
@@ -55,7 +55,7 @@
                     move_uploaded_file($file_temp3, $uploaded_image3);
                     
                     
-                    $query = "insert into tbProductinfo (vProductName,vCategory,vSharingType,vAuthorName,vUploadBy,vPrice,vImage1,vImage2,vImage3) 
+                    $query = "insert into tbProductinfo (vProductName, vCategory, vSharingType, vAuthorName, vUploadBy, vPrice, vImage1, vImage2, vImage3, vDescription,dDate) 
                             values(
                             '$vProductName',
                             '$vCategory',
@@ -65,7 +65,8 @@
                             '$vPrice',
                             '$uploaded_image1',
                             '$uploaded_image2',
-                            '$uploaded_image3')";
+                            '$uploaded_image3',
+                            '$vDescription',CURDATE())";
 
                     $dataInsert = $db->insert($query);
                     if ($dataInsert) 
@@ -173,6 +174,7 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
+                            <th>Date</th>
                             <th>Product Name</th>
                             <th>Author Name</th>
                             <th>Sharing Type</th>
@@ -187,7 +189,7 @@
                             {
                                 $userId=$vUserId;
                             }
-                        $query="select iAutoId,vProductName,vAuthorName,vSharingType,vPrice from tbProductinfo where vUploadBy like '$userId' ";
+                        $query="select iAutoId,dDate,vProductName,vAuthorName,vSharingType,vPrice from tbProductinfo where vUploadBy like '$userId' ";
                         $selectData=$db->select($query);
                         if($selectData)
                         {
@@ -196,6 +198,7 @@
                                 
                         ?>
                             <tr>
+                                <td><?php echo $result['dDate']; ?></td>
                                 <td><?php echo $result['vProductName']; ?></td>
                                 <td><?php echo $result['vAuthorName']; ?></td>
                                 <td><?php echo $result['vSharingType']; ?></td>
@@ -209,6 +212,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
+                            <th>Date</th>
                             <th>Product Name</th>
                             <th>Author Name</th>
                             <th>Sharing Type</th>

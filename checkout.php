@@ -87,8 +87,8 @@
                                         $vBkashNo=mysqli_real_escape_string($db->link,$_POST['vBkashNo']);
                                         $vTransactionId=mysqli_real_escape_string($db->link,$_POST['vTransactionId']);
 
-                                        $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice )  
-                                        select '$vUserId', vProductId, vProductName, vUploadBy, '$vBkashNo', '$vTransactionId', vPrice from tbcart a where vUserIp='$vUserIp'";
+                                        $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice, dDate )  
+                                        select '$vUserId', vProductId, vProductName, vUploadBy, '$vBkashNo', '$vTransactionId', vPrice, dDate from tbcart a where vUserIp='$vUserIp'";
 
                                         $dataInsert = $db->insert($query);
                                         if ($dataInsert) 

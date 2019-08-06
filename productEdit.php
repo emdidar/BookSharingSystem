@@ -51,6 +51,7 @@
                     $vDescription=mysqli_real_escape_string($db->link,$_POST['vDescription']);
                     $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
                     $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
+                    $vDescription=mysqli_real_escape_string($db->link,$_POST['vDescription']);
 		
                     $file_name1 = $_FILES['image1']['name'];
                     $file_temp1 = $_FILES['image1']['tmp_name'];
@@ -122,6 +123,7 @@
                         vAuthorName='$vAuthorName', 
                         vDescription='$vDescription', 
                         vUploadBy='$vUploadBy', 
+                        vDescription='$vDescription', 
                         vPrice='$vPrice' where iAutoId='$editid' ";
 
                         $dataUpdate = $db->update($query);
