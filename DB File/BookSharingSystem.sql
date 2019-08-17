@@ -13,12 +13,10 @@
 
 
 -- Dumping database structure for booksharingsystem
-DROP DATABASE IF EXISTS `booksharingsystem`;
 CREATE DATABASE IF NOT EXISTS `booksharingsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `booksharingsystem`;
 
 -- Dumping structure for table booksharingsystem.tbcart
-DROP TABLE IF EXISTS `tbcart`;
 CREATE TABLE IF NOT EXISTS `tbcart` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vUserIp` varchar(150) NOT NULL,
@@ -29,17 +27,17 @@ CREATE TABLE IF NOT EXISTS `tbcart` (
   `vSharingType` varchar(150) NOT NULL,
   `dDate` date NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table booksharingsystem.tbcart: ~1 rows (approximately)
 DELETE FROM `tbcart`;
 /*!40000 ALTER TABLE `tbcart` DISABLE KEYS */;
 INSERT INTO `tbcart` (`iAutoId`, `vUserIp`, `vProductId`, `vProductName`, `vUploadBy`, `vPrice`, `vSharingType`, `dDate`) VALUES
-	(24, '::1', '35', 'new book', '8', 123, 'Sale', '2019-08-08');
+	(26, 'fe80::132:c50:e5e7:a89a', '35', 'new book', '8', 123, 'Sale', '2019-08-17'),
+	(27, 'fe80::5d6e:ea40:e6f3:fe95', '38', 'DATA STRUCTURES', '8', 100, 'Donate', '2019-08-17');
 /*!40000 ALTER TABLE `tbcart` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbcategoryinfo
-DROP TABLE IF EXISTS `tbcategoryinfo`;
 CREATE TABLE IF NOT EXISTS `tbcategoryinfo` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vCategoryName` varchar(150) DEFAULT NULL,
@@ -60,7 +58,6 @@ INSERT INTO `tbcategoryinfo` (`iAutoId`, `vCategoryName`) VALUES
 /*!40000 ALTER TABLE `tbcategoryinfo` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbcheckout
-DROP TABLE IF EXISTS `tbcheckout`;
 CREATE TABLE IF NOT EXISTS `tbcheckout` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vUserId` varchar(150) NOT NULL,
@@ -75,17 +72,16 @@ CREATE TABLE IF NOT EXISTS `tbcheckout` (
   `vSharingType` varchar(150) NOT NULL,
   `dDate` date NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout';
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout';
 
--- Dumping data for table booksharingsystem.tbcheckout: ~1 rows (approximately)
+-- Dumping data for table booksharingsystem.tbcheckout: ~0 rows (approximately)
 DELETE FROM `tbcheckout`;
 /*!40000 ALTER TABLE `tbcheckout` DISABLE KEYS */;
 INSERT INTO `tbcheckout` (`iAutoId`, `vUserId`, `vProductId`, `vProductName`, `vUploadBy`, `vCarrierId`, `vBkashNo`, `vTransactionId`, `vStatus`, `vPrice`, `vSharingType`, `dDate`) VALUES
-	(23, '2', '35', 'new book', '8', '3', '01829111111', 'test', 'pending for carrier Approval', 123, 'Sale', '2019-08-08');
+	(25, '2', '35', 'new book', '8', '7', '1645646', '4646', 'delivered', 123, 'Sale', '2019-08-17');
 /*!40000 ALTER TABLE `tbcheckout` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tblogin
-DROP TABLE IF EXISTS `tblogin`;
 CREATE TABLE IF NOT EXISTS `tblogin` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vUserType` varchar(150) DEFAULT NULL,
@@ -104,14 +100,14 @@ CREATE TABLE IF NOT EXISTS `tblogin` (
   PRIMARY KEY (`iAutoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserType, vEmployeeName, vGender, vCountry, vCity, vZipCode, vMobile, vAddress,  vEmail, vNationalId, vImage, vPassword, vStatus from tblogin';
 
--- Dumping data for table booksharingsystem.tblogin: ~6 rows (approximately)
+-- Dumping data for table booksharingsystem.tblogin: ~8 rows (approximately)
 DELETE FROM `tblogin`;
 /*!40000 ALTER TABLE `tblogin` DISABLE KEYS */;
 INSERT INTO `tblogin` (`iAutoId`, `vUserType`, `vEmployeeName`, `vGender`, `vCountry`, `vCity`, `vZipCode`, `vMobile`, `vAddress`, `vEmail`, `vNationalId`, `vImage`, `vPassword`, `vStatus`) VALUES
 	(1, 'admin', 'admin', 'Male', 'Bangladesh', 'Chittagong', '0088', '01830663166', 'GEC', 'admin@gmail.com', '123', 'Chrysanthemum.jpg', '123', 'active'),
 	(2, 'user', 's', NULL, 'Bangladesh', 'Chittagong', '0088', '01830663154', 'Chittagong,Paslais', 's@gmail.com', NULL, NULL, 's', 'active'),
 	(3, 'carrier', 'Mohammad Hossain', NULL, 'Bangladesh', 'Dhaka', '0088', '01830663133', 'Dhaka, New Market', 'hossain@yahoo.com', NULL, NULL, '123', 'active'),
-	(7, 'carrier', 'Misbah Uddin Chy', NULL, 'Bangladesh', 'Chittagong', '0088', '01830663166', 'chittagong,gec', 'bahar@yahoo.com', NULL, NULL, '123', 'active'),
+	(7, 'carrier', 'Misbah Uddin Bahar', 'Male', 'Bangladesh', 'Chittagong', '0088', '01830663166', 'chittagong,gec', 'bahar@yahoo.com', '5486899485645', NULL, '123', 'active'),
 	(8, 'user', 'Misbah Uddin Chy', NULL, 'Bangladesh', 'Chittagong', '0088', '01830663162', 'Chittagong,gec', 'misbah@yahoo.com', NULL, NULL, '123', 'active'),
 	(9, 'user', 'rajib', NULL, 'Bangladesh', 'Dhaka', '0066', '01830663169', 'Dhaka', 'rajib21@gmail.com', NULL, NULL, '123', 'active'),
 	(10, 'carrier', 'Mohammad Ibrahim', NULL, 'Bangladesh', 'Chittagong', '0088', '01830663133', 'Chittagong,New Market', 'ibrahimctg@yahoo.com', NULL, NULL, '123', 'active'),
@@ -119,7 +115,6 @@ INSERT INTO `tblogin` (`iAutoId`, `vUserType`, `vEmployeeName`, `vGender`, `vCou
 /*!40000 ALTER TABLE `tblogin` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbproductinfo
-DROP TABLE IF EXISTS `tbproductinfo`;
 CREATE TABLE IF NOT EXISTS `tbproductinfo` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vCategory` varchar(50) NOT NULL DEFAULT '0',
