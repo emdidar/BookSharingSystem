@@ -13,10 +13,12 @@
 
 
 -- Dumping database structure for booksharingsystem
+DROP DATABASE IF EXISTS `booksharingsystem`;
 CREATE DATABASE IF NOT EXISTS `booksharingsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `booksharingsystem`;
 
 -- Dumping structure for table booksharingsystem.tbcart
+DROP TABLE IF EXISTS `tbcart`;
 CREATE TABLE IF NOT EXISTS `tbcart` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vUserIp` varchar(150) NOT NULL,
@@ -38,6 +40,7 @@ INSERT INTO `tbcart` (`iAutoId`, `vUserIp`, `vProductId`, `vProductName`, `vUplo
 /*!40000 ALTER TABLE `tbcart` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbcategoryinfo
+DROP TABLE IF EXISTS `tbcategoryinfo`;
 CREATE TABLE IF NOT EXISTS `tbcategoryinfo` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vCategoryName` varchar(150) DEFAULT NULL,
@@ -58,6 +61,7 @@ INSERT INTO `tbcategoryinfo` (`iAutoId`, `vCategoryName`) VALUES
 /*!40000 ALTER TABLE `tbcategoryinfo` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbcheckout
+DROP TABLE IF EXISTS `tbcheckout`;
 CREATE TABLE IF NOT EXISTS `tbcheckout` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vUserId` varchar(150) NOT NULL,
@@ -82,6 +86,7 @@ INSERT INTO `tbcheckout` (`iAutoId`, `vUserId`, `vProductId`, `vProductName`, `v
 /*!40000 ALTER TABLE `tbcheckout` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tblogin
+DROP TABLE IF EXISTS `tblogin`;
 CREATE TABLE IF NOT EXISTS `tblogin` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vUserType` varchar(150) DEFAULT NULL,
@@ -115,6 +120,7 @@ INSERT INTO `tblogin` (`iAutoId`, `vUserType`, `vEmployeeName`, `vGender`, `vCou
 /*!40000 ALTER TABLE `tblogin` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbproductinfo
+DROP TABLE IF EXISTS `tbproductinfo`;
 CREATE TABLE IF NOT EXISTS `tbproductinfo` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vCategory` varchar(50) NOT NULL DEFAULT '0',
