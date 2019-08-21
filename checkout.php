@@ -12,6 +12,7 @@
 <?php
     $vGrandTotal=0;
     $vUploadBy='';
+    $vSharingType='';
     $vProductId='';
 ?>
     <div class="breadcrumb">
@@ -21,7 +22,7 @@
         </div>
     </div>
     <section class="static about-sec">
-        <div class="container">
+        <div class="container-fluid">
             
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -35,6 +36,7 @@
                                         <tr>
                                             <th>#SL</th>
                                             <th>Product Name</th>
+                                            <th>Type</th>
                                             <th>Image</th>
                                             <th>Price</th>
                                         </tr>
@@ -43,7 +45,7 @@
                                     <?php
                                         $i=1;
                                         $query="select iAutoId,vUserIp,vProductId,vProductName,
-                                        (select vImage1 from tbproductinfo where iAutoId=a.vProductId)vImage1,vUploadBy,vPrice 
+                                        (select vImage1 from tbproductinfo where iAutoId=a.vProductId)vImage1,vUploadBy,vPrice,vSharingType 
                                         from tbcart a where vUserIp='$vUserIp' ";
                                         $selectData=$db->select($query);
                                         if($selectData)
@@ -52,12 +54,14 @@
                                                 while($result=$selectData->fetch_assoc())
                                                 {
                                                     $vUploadBy=$result['vUploadBy'];
+                                                    $vSharingType=$result['vSharingType'];
                                                     $vProductId=$result['vProductId'];
                                                     $vGrandTotal=$vGrandTotal+$result['vPrice'];
                                             ?>
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $result['vProductName'];?></td>
+                                                <td><?php echo $result['vSharingType'];?></td>
                                                 <td><img style=" width: 80px; height: 50px;" src="<?php echo $result['vImage1'];?>" alt=""/></td>
                                                 <td>Tk. <?php echo $result['vPrice'];?></td>
                                             </tr>
@@ -68,6 +72,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <th></th>
                                             <th></th>
                                             <th></th>
                                             <th>Grand Total :</th>
@@ -87,35 +92,74 @@
                                         $vBkashNo=mysqli_real_escape_string($db->link,$_POST['vBkashNo']);
                                         $vTransactionId=mysqli_real_escape_string($db->link,$_POST['vTransactionId']);
 
-                                        $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice, dDate, vSharingType )  
-                                        select '$vUserId', vProductId, vProductName, vUploadBy, '$vBkashNo', '$vTransactionId', vPrice, dDate, vSharingType from tbcart a where vUserIp='$vUserIp'";
-
-                                        $dataInsert = $db->insert($query);
-                                        if ($dataInsert) 
+                                        if ($vSharingType!='Borrow') 
                                         {
-                                            $query = "update tbproductinfo set 
-                                            status='inactive' where iAutoId='$vProductId' ";
+                                            if (!empty($vBkashNo)) 
+                                            {
+                                                if (!empty($vTransactionId)) 
+                                                {
+                                                    $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice, dDate, vSharingType ) select '$vUserId', vProductId, vProductName, vUploadBy, '$vBkashNo', '$vTransactionId', vPrice, dDate, vSharingType from tbcart a where vUserIp='$vUserIp'";
+                                                    
+                                                    $dataInsert = $db->insert($query);
+                                                    if ($dataInsert) 
+                                                    {
+                                                        $query = "update tbproductinfo set 
+                                                        status='inactive' where iAutoId='$vProductId' ";
 
-                                            $dataUpdate= $db->update($query);
-                                            
-                                            echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully go to Dashboard.</span>";
+                                                        $dataUpdate= $db->update($query);
+
+                                                        echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully go to Dashboard.</span>";
+                                                    } 
+                                                    else {
+                                                        echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
+                                                    }
+                                                }
+                                                else{
+                                                    echo "<span style='color:red;font-size:18px;'>Please provide Transaction No.. !</span>";
+                                                }
+                                            }
+                                            else{
+                                                echo "<span style='color:red;font-size:18px;'>Please provide Bkash No.. !</span>";
+                                            }
                                         } 
-                                        else {
-                                            echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
+                                        else 
+                                        {
+                                            $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice, dDate, vSharingType )  
+                                            select '$vUserId', vProductId, vProductName, vUploadBy, 'N/A', 'N/A', vPrice, dDate, vSharingType from tbcart a where vUserIp='$vUserIp'"; 
+                                            
+                                            $dataInsert = $db->insert($query);
+                                            if ($dataInsert) 
+                                            {
+                                                $query = "update tbproductinfo set 
+                                                status='inactive' where iAutoId='$vProductId' ";
+
+                                                $dataUpdate= $db->update($query);
+
+                                                echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully go to Dashboard.</span>";
+                                            } 
+                                            else {
+                                                echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
+                                            }
                                         }
                                     }
                                     ?>
+                                    <?php 
+                                    $ishidden='';
+                                    if ($vSharingType='Borrow') {
+                                        $ishidden='hidden';
+                                    }
+                                    ?>
                                     <form class="form-horizontal" action="" method="POST" role="form">
-                                        <div class="form-group row">
+                                        <div <?php echo $ishidden ?> class="form-group row">
                                             <label class="col-sm-4 col-form-label">Bkash No</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" placeholder="Bkash No" name="vBkashNo" required>
+                                                <input type="text" class="form-control" placeholder="Bkash No" name="vBkashNo">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <div <?php echo $ishidden ?> class="form-group row">
                                             <label class="col-sm-4 col-form-label">Transaction Id</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" placeholder="Bkash Transaction Id" name="vTransactionId" required>
+                                                <input type="text" class="form-control" placeholder="Bkash Transaction Id" name="vTransactionId">
                                             </div>
                                         </div>
                                             <button type="submit" class="btn btn-primary">Checkout</button>
