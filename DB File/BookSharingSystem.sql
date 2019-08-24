@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `tbcart` (
   PRIMARY KEY (`iAutoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbcart: ~1 rows (approximately)
+-- Dumping data for table booksharingsystem.tbcart: ~0 rows (approximately)
 DELETE FROM `tbcart`;
 /*!40000 ALTER TABLE `tbcart` DISABLE KEYS */;
 INSERT INTO `tbcart` (`iAutoId`, `vUserIp`, `vProductId`, `vProductName`, `vUploadBy`, `vPrice`, `vSharingType`, `dDate`) VALUES
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `tbcheckout` (
   PRIMARY KEY (`iAutoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout';
 
--- Dumping data for table booksharingsystem.tbcheckout: ~1 rows (approximately)
+-- Dumping data for table booksharingsystem.tbcheckout: ~0 rows (approximately)
 DELETE FROM `tbcheckout`;
 /*!40000 ALTER TABLE `tbcheckout` DISABLE KEYS */;
 INSERT INTO `tbcheckout` (`iAutoId`, `vUserId`, `vProductId`, `vProductName`, `vUploadBy`, `vCarrierId`, `vBkashNo`, `vTransactionId`, `vStatus`, `vPrice`, `vSharingType`, `dDate`) VALUES
