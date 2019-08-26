@@ -75,18 +75,6 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Bkash No</label>
-                    <div class="col-sm-10">
-                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vBkashNo']; ?>" name="vBkashNo" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Transaction ID</label>
-                    <div class="col-sm-10">
-                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vTransactionId']; ?>" name="vTransactionId" required>
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Sharing Type</label>
                     <div class="col-sm-10">
                         <input readonly type="text" class="form-control" value="<?php echo $productResult['vSharingType']; ?>" name="vSharingType" required>

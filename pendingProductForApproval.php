@@ -33,7 +33,7 @@
                 $vCarrierId=mysqli_real_escape_string($db->link,$_POST['vCarrierId']);
 
                 /*select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout*/
-                if('courier service'){
+                if($vCarrierId=='delivered by courier service'){
                     $vStatus='delivered by courier service';
                 }
                 else{
