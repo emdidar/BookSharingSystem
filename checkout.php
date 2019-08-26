@@ -14,6 +14,8 @@
     $vUploadBy='';
     $vSharingType='';
     $vProductId='';
+    $ishidden='';
+
 ?>
     <div class="breadcrumb">
         <div class="container">
@@ -57,6 +59,11 @@
                                                     $vSharingType=$result['vSharingType'];
                                                     $vProductId=$result['vProductId'];
                                                     $vGrandTotal=$vGrandTotal+$result['vPrice'];
+                                                    
+                                                    if ($vSharingType=='Borrow') 
+                                                    {
+                                                        $ishidden='hidden';
+                                                    }
                                             ?>
                                             <tr>
                                                 <td><?php echo $i;?></td>
@@ -144,10 +151,9 @@
                                     }
                                     ?>
                                     <?php 
-                                    $ishidden='';
-                                    if ($vSharingType='Borrow') {
+                                    /*if ($vSharingType='Borrow') {
                                         $ishidden='hidden';
-                                    }
+                                    }*/
                                     ?>
                                     <form class="form-horizontal" action="" method="POST" role="form">
                                         <div <?php echo $ishidden ?> class="form-group row">

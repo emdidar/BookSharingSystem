@@ -29,13 +29,13 @@ CREATE TABLE IF NOT EXISTS `tbcart` (
   `vSharingType` varchar(150) NOT NULL,
   `dDate` date NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table booksharingsystem.tbcart: ~0 rows (approximately)
 DELETE FROM `tbcart`;
 /*!40000 ALTER TABLE `tbcart` DISABLE KEYS */;
 INSERT INTO `tbcart` (`iAutoId`, `vUserIp`, `vProductId`, `vProductName`, `vUploadBy`, `vPrice`, `vSharingType`, `dDate`) VALUES
-	(33, '::1', '41', 'Retina admission test General knolage', '9', 0, 'Borrow', '2019-08-21');
+	(40, '::1', '41', 'Retina admission test General knolage', '9', 0, 'Borrow', '2019-08-26');
 /*!40000 ALTER TABLE `tbcart` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbcategoryinfo
@@ -75,13 +75,13 @@ CREATE TABLE IF NOT EXISTS `tbcheckout` (
   `vSharingType` varchar(150) NOT NULL,
   `dDate` date NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout';
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout';
 
 -- Dumping data for table booksharingsystem.tbcheckout: ~0 rows (approximately)
 DELETE FROM `tbcheckout`;
 /*!40000 ALTER TABLE `tbcheckout` DISABLE KEYS */;
 INSERT INTO `tbcheckout` (`iAutoId`, `vUserId`, `vProductId`, `vProductName`, `vUploadBy`, `vCarrierId`, `vBkashNo`, `vTransactionId`, `vStatus`, `vPrice`, `vSharingType`, `dDate`) VALUES
-	(27, '2', '41', 'Retina admission test General knolage', '9', '10', 'N/A', 'N/A', 'delivered', 0, 'Borrow', '2019-08-21');
+	(28, '2', '41', 'Retina admission test General knolage', '9', 'delivered by courier service', 'N/A', 'N/A', 'delivered by courier service', 0, 'Borrow', '2019-08-26');
 /*!40000 ALTER TABLE `tbcheckout` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tblogin

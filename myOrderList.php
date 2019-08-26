@@ -43,7 +43,7 @@
                                     <td><img style=" width: 80px; height: 50px;" src="<?php echo $result['vImage1'];?>" alt=""/></td>
                                     <td>Tk. <?php echo $result['vPrice'];?></td>
                                     <td><?php echo $result['vStatus'];?></td>
-                                    <td>View</td>
+                                    <td><a href="viewOrder.php?id=<?php echo $result['iAutoId'];?>">View</a></td>
                                 </tr>
                                <?php $i++;
                                 }
