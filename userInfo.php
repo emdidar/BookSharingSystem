@@ -8,7 +8,7 @@
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Employee List</h4>
+                <h4 class="card-title">User Informatino</h4>
                 <hr>
               <div class="panel-body">
                 
@@ -16,7 +16,7 @@
                     <thead>
                         <tr>
                             <th>#SL</th>
-                            <th>Employee Name</th>
+                            <th>Name</th>
                             <th>Gender</th>
                             <th>Mobile</th>
                             <th>Email</th>
@@ -43,7 +43,7 @@
                                 <td><?php echo $result['vEmail']; ?></td>
                                 <td><?php echo $result['vUserType']; ?></td>
                                 <td><?php echo $result['vStatus']; ?></td>
-                                <td><a href="employeeListEdit.php?id=<?php echo $result['iAutoId'];?>">Edit</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="employeeListDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
+                                <td><a href="userInfoEdit.php?id=<?php echo $result['iAutoId'];?>">Edit</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="userInfoDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
                             </tr>
                            <?php $i++;
                             }
@@ -53,7 +53,7 @@
                     <tfoot>
                         <tr>
                             <th>#SL</th>
-                            <th>Employee Name</th>
+                            <th>Name</th>
                             <th>Gender</th>
                             <th>Mobile</th>
                             <th>Email</th>

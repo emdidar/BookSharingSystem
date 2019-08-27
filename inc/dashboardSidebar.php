@@ -27,7 +27,7 @@
                                 if($vUserType=='admin')
                                 {?>
                                     
-                                    <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'employeeList.php'){echo 'active'; }else { echo ''; } ?>"> <a href="employeeList.php"><i class="fa fa-arrow-circle-o-right"></i>	EmployeeList</a> </li>
+                                    <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'userInfo.php'){echo 'active'; }else { echo ''; } ?>"> <a href="userInfo.php"><i class="fa fa-arrow-circle-o-right"></i>	User Info</a> </li>
 
                                     <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'categoryAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="categoryAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	CategoryInfo</a> </li>
 

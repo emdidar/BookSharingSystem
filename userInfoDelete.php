@@ -2,7 +2,7 @@
 <?php
 if(!isset($_GET['deleteid']) || $_GET['deleteid']==NULL)
 {
-    header("Location:employeeList.php");
+    header("Location:userInfo.php");
 }
 else
 {
