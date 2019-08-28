@@ -84,8 +84,8 @@
                         <label class="col-sm-2 col-form-label">Gender</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="vGender">
-								<option value="Male">Male</option>
-								<option value="Female">Female</option>
+								<option<?php if($result['vGender']=='Male') { ?> selected="selected" <?php } ?> value="Male">Male</option>
+								<option<?php if($result['vGender']=='Female') { ?> selected="selected" <?php } ?> value="Female">Female</option>
                             </select>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                         <div class="col-sm-10">
                             <select class="form-control" name="vStatus">
 								<option<?php if($result['vStatus']=='active') { ?> selected="selected" <?php } ?> value="active">active</option>
-								<option<?php if($result['vStatus']=='inactive') { ?> selected="selected" <?php } ?> value="active">inactive</option>
+								<option<?php if($result['vStatus']=='inactive') { ?> selected="selected" <?php } ?> value="inactive">inactive</option>
                             </select>
                         </div>
                     </div>

@@ -20,6 +20,7 @@
                     $vEmployeeName=mysqli_real_escape_string($db->link,$_POST['vEmployeeName']);
                     $vCountry=mysqli_real_escape_string($db->link,$_POST['vCountry']);
                     $vCity=mysqli_real_escape_string($db->link,$_POST['vCity']);
+                    $vThana=mysqli_real_escape_string($db->link,$_POST['vThana']);
                     $vZipCode=mysqli_real_escape_string($db->link,$_POST['vZipCode']);
                     $vAddress=mysqli_real_escape_string($db->link,$_POST['vAddress']);
                     $vMobile=mysqli_real_escape_string($db->link,$_POST['vMobile']);
@@ -41,7 +42,7 @@
                     {
                         if($vUserType!='Select User Type...')
                         {
-                            $query = "insert into tblogin (vUserType, vEmployeeName, vCountry, vCity, vZipCode, vAddress, vMobile, vEmail, vPassword) values('$vUserType', '$vEmployeeName', '$vCountry', '$vCity', '$vZipCode', '$vAddress', '$vMobile', '$vEmail', '$vPassword')";
+                            $query = "insert into tblogin (vUserType, vEmployeeName, vCountry, vCity, vThana, vZipCode, vAddress, vMobile, vEmail, vPassword) values('$vUserType', '$vEmployeeName', '$vCountry', '$vCity', '$vThana', '$vZipCode', '$vAddress', '$vMobile', '$vEmail', '$vPassword')";
 
                             $dataInsert = $db->insert($query);
                             if ($dataInsert) 
@@ -79,6 +80,10 @@
                         
                         <div class="col-md-4">
                             <input type="text" placeholder="City" name="vCity" required>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <input type="text" placeholder="Thana" name="vThana" required>
                         </div>
                         
                         <div class="col-md-4">

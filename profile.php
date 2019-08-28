@@ -19,6 +19,7 @@
                     $vGender=mysqli_real_escape_string($db->link,$_POST['vGender']);
                     $vCountry=mysqli_real_escape_string($db->link,$_POST['vCountry']);
                     $vCity=mysqli_real_escape_string($db->link,$_POST['vCity']);
+                    $vThana=mysqli_real_escape_string($db->link,$_POST['vThana']);
                     $vZipCode=mysqli_real_escape_string($db->link,$_POST['vZipCode']);
                     $vMobile=mysqli_real_escape_string($db->link,$_POST['vMobile']);
                     $vAddress=mysqli_real_escape_string($db->link,$_POST['vAddress']);
@@ -30,6 +31,7 @@
                         vGender='$vGender',
                         vCountry='$vCountry',
                         vCity='$vCity',
+                        vThana='$vThana',
                         vZipCode='$vZipCode',
                         vMobile='$vMobile',
                         vAddress='$vAddress',
@@ -73,8 +75,8 @@
                         <label class="col-sm-2 col-form-label">Gender</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="vGender">
-								<option value="Male">Male</option>
-								<option value="Female">Female</option>
+								<option<?php if($result['vGender']=='Male') { ?> selected="selected" <?php } ?>  value="Male">Male</option>
+								<option<?php if($result['vGender']=='Female') { ?> selected="selected" <?php } ?>  value="Female">Female</option>
                             </select>
                         </div>
                     </div>
@@ -89,6 +91,12 @@
                         <label class="col-sm-2 col-form-label">City</label>
                         <div class="col-sm-10">
                             <input type="text" value="<?php echo $result['vCity']; ?>" class="form-control" placeholder="City" name="vCity" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Thana</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="<?php echo $result['vThana']; ?>" class="form-control" placeholder="Thana" name="vThana" required>
                         </div>
                     </div>
                     <div class="form-group row">

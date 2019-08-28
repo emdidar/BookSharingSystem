@@ -9,7 +9,80 @@
     </div>
     <section class="static about-sec">
         <div class="container">
-            
+            <h1>Search your Book</h1>
+            <p> </p>
+            <div class="form">
+                <?php
+
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                {
+                    $vCity=mysqli_real_escape_string($db->link,$_POST['vCity']);
+                    $vThana=mysqli_real_escape_string($db->link,$_POST['vThana']);
+
+                    $query="select * from tblogin where vEmail='$vEmail' or vMobile='$vMobile'  ";
+                    $result=$db->select($query);
+                    if($result!=false)
+                    {
+                        $value=mysqli_fetch_array($result);
+                        $row=mysqli_num_rows($result);
+                        if($row>0)
+                        {
+                            echo "<span style='color:red;font-size:18px;'>Email or mobile No. Already Exist !</span>";
+                        }
+                    }
+                    else
+                    {
+                        echo "<span style='color:red;font-size:18px;'>Nothing to Show !</span>";
+                    }
+                }
+                ?>
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select class="" name="vCity" required >
+								<option selected>Select City...</option>
+                                <?php
+                                    $query="select distinct vCity from tbLogin a where vStatus='active' and ifnull(vCity,'')!='' and iAutoId in (select vUploadBy from tbproductinfo where vUploadBy=a.iAutoId)";
+                                    $selectData=$db->select($query);
+                                    if($selectData)
+                                    {
+                                        while($result=$selectData->fetch_assoc())
+                                        {
+                                    ?>
+                                        <option value="<?php echo $result['vCity']; ?>"><?php echo $result['vCity']; ?></option>
+                                    <?php
+                                        }
+                                    }
+                                ?>
+							</select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="" name="vThana" required >
+								<option selected>Select Thana...</option>
+                                <?php
+                                    $query="select distinct vThana from tbLogin a where vStatus='active' and ifnull(vThana,'')!='' and iAutoId in (select vUploadBy from tbproductinfo where vUploadBy=a.iAutoId)";
+                                    $selectData=$db->select($query);
+                                    if($selectData)
+                                    {
+                                        while($result=$selectData->fetch_assoc())
+                                        {
+                                    ?>
+                                        <option value="<?php echo $result['vThana']; ?>"><?php echo $result['vThana']; ?></option>
+                                    <?php
+                                        }
+                                    }
+                                ?>
+							</select>
+                        </div>                        
+                        <div class="col-md-4">
+                            <input type="text" placeholder="Book or Author Name" name="vProduct" required>
+                        </div>
+                        <div class="col-lg-8 col-md-12">
+                            <button type="submit" class="btn black">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 <?php

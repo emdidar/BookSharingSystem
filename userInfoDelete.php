@@ -13,13 +13,13 @@ else
 
     if($deldata)
     {
-        echo "<script>window.location = 'employeeList.php'; </script>";
+        echo "<script>window.location = 'userInfo.php'; </script>";
         echo "<script>alert('Event Deleted Successfully !!')</script>";
     }
     else
     {
         echo "<script>alert('Event Not Deleted !!')</script>";
-        echo "<script>window.location = 'employeeList.php'; </script>";
+        echo "<script>window.location = 'userInfo.php'; </script>";
     }
 }
 

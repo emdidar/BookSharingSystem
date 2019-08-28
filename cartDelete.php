@@ -14,11 +14,11 @@ else
     if($deldata)
     {
         echo "<script>window.location = 'cart.php'; </script>";
-        echo "<script>alert('Event Deleted Successfully !!')</script>";
+        echo "<script>alert('All Information Deleted Successfully !!')</script>";
     }
     else
     {
-        echo "<script>alert('Event Not Deleted !!')</script>";
+        echo "<script>alert('All Information Not Deleted !!')</script>";
         echo "<script>window.location = 'cart.php'; </script>";
     }
 }
