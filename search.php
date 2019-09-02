@@ -13,30 +13,15 @@
             <p> </p>
             <div class="form">
                 <?php
-
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-                {
-                    $vCity=mysqli_real_escape_string($db->link,$_POST['vCity']);
-                    $vThana=mysqli_real_escape_string($db->link,$_POST['vThana']);
-
-                    $query="select * from tblogin where vEmail='$vEmail' or vMobile='$vMobile'  ";
-                    $result=$db->select($query);
-                    if($result!=false)
+                    /*if($_SERVER['REQUEST_METHOD']=='POST')
                     {
-                        $value=mysqli_fetch_array($result);
-                        $row=mysqli_num_rows($result);
-                        if($row>0)
-                        {
-                            echo "<span style='color:red;font-size:18px;'>Email or mobile No. Already Exist !</span>";
-                        }
-                    }
-                    else
-                    {
-                        echo "<span style='color:red;font-size:18px;'>Nothing to Show !</span>";
-                    }
-                }
+                        $vCity=$fm->validation($_POST['vCity']);
+                        $vThana=$_POST['vThana'];
+
+                        echo "<script>location='searchResult.php'</script>";
+                    }*/
                 ?>
-                <form action="" method="POST">
+                <form action="searchResult.php" method="get">
                     <div class="row">
                         <div class="col-md-4">
                             <select class="" name="vCity" required >

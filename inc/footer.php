@@ -36,19 +36,37 @@
                     <div class="form">
                         <h3>Quick Contact us</h3>
                         <h6></h6>
-                        <form>
+                        <?php
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                        {
+                            $vName=mysqli_real_escape_string($db->link,$_POST['vName']);
+                            $vEmail=mysqli_real_escape_string($db->link,$_POST['vEmail']);
+                            $vMessage=mysqli_real_escape_string($db->link,$_POST['vMessage']);
+                            $query = "insert into tbInbox (vName, vEmail, vMessage, dDate) 
+                                    values('$vName','$vEmail','$vMessage',CURDATE())";
+                            $dataInsert = $db->insert($query);
+                            if ($dataInsert) 
+                            {
+                                echo "<span style='color:green;font-size:18px;'>Message send Successfully.</span>";
+                            } 
+                            else {
+                                echo "<span style='color:red;font-size:18px;'>Message Not send Successfully !</span>";
+                            }
+                        }
+                        ?>
+                        <form action="" method="post">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input placeholder="Name" required>
+                                    <input placeholder="Name" name="vName" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="Email" required>
+                                    <input type="email" placeholder="Email" name="vEmail" required>
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea placeholder="Messege"></textarea>
+                                    <textarea placeholder="Messege" name="vMessage"></textarea>
                                 </div>
                                 <div class="col-md-12">
-                                    <button class="btn black">Alright, Submit</button>
+                                    <button type="submit" class="btn black">Alright, Submit</button>
                                 </div>
                             </div>
                         </form>

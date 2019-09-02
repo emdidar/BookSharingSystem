@@ -196,39 +196,46 @@
                                     <div hidden class="form-group row">
                                         <label class="col-sm-3 col-form-label">User ID: </label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $vUserId;?>" class="form-control" placeholder="User ID" name="vUserId" required>
+                                            <input readonly type="text" value="<?php echo $vUserId;?>" class="form-control"  name="vUserId" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Full Name</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vEmployeeName']; ?>" class="form-control" placeholder="Full Name" name="vEmployeeName" required>
+                                            <input readonly type="text" value="<?php echo $result['vEmployeeName']; ?>" class="form-control" name="vEmployeeName" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Country</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vCountry']; ?>" class="form-control" placeholder="Country" name="vCountry" required>
+                                            <input readonly type="text" value="<?php echo $result['vCountry']; ?>" class="form-control" name="vCountry" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">City</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vCity']; ?>" class="form-control" placeholder="City" name="vCity" required>
+                                            <input readonly type="text" value="<?php echo $result['vCity']; ?>" class="form-control" name="vCity" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Zip Code</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vZipCode']; ?>" class="form-control" placeholder="Zip Code" name="vZipCode" required>
+                                            <input readonly type="text" value="<?php echo $result['vZipCode']; ?>" class="form-control" name="vZipCode" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Mobile</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vMobile']; ?>" class="form-control" placeholder="Mobile" name="vMobile" required>
+                                            <input readonly type="text" value="<?php echo $result['vMobile']; ?>" class="form-control" name="vMobile" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Bkash No</label>
+                                        <div class="col-sm-9">
+                                            <input readonly type="text" value="<?php echo $result['vBkashNo']; ?>" class="form-control" name="vBkashNo" required>
                                         </div>
                                     </div>
 
@@ -264,39 +271,46 @@
                                     <div hidden class="form-group row">
                                         <label class="col-sm-3 col-form-label">User ID: </label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $vUploadBy;?>" class="form-control" placeholder="User ID" name="vUserId" required>
+                                            <input readonly type="text" value="<?php echo $vUploadBy;?>" class="form-control"  name="vUserId" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Full Name</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vEmployeeName']; ?>" class="form-control" placeholder="Full Name" name="vEmployeeName" required>
+                                            <input readonly type="text" value="<?php echo $result['vEmployeeName']; ?>" class="form-control" name="vEmployeeName" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Country</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vCountry']; ?>" class="form-control" placeholder="Country" name="vCountry" required>
+                                            <input readonly type="text" value="<?php echo $result['vCountry']; ?>" class="form-control" name="vCountry" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">City</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vCity']; ?>" class="form-control" placeholder="City" name="vCity" required>
+                                            <input readonly type="text" value="<?php echo $result['vCity']; ?>" class="form-control" name="vCity" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Zip Code</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vZipCode']; ?>" class="form-control" placeholder="Zip Code" name="vZipCode" required>
+                                            <input readonly type="text" value="<?php echo $result['vZipCode']; ?>" class="form-control" name="vZipCode" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Mobile</label>
                                         <div class="col-sm-9">
-                                            <input readonly type="text" value="<?php echo $result['vMobile']; ?>" class="form-control" placeholder="Mobile" name="vMobile" required>
+                                            <input readonly type="text" value="<?php echo $result['vMobile']; ?>" class="form-control" name="vMobile" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Bkash No</label>
+                                        <div class="col-sm-9">
+                                            <input readonly type="text" value="<?php echo $result['vBkashNo']; ?>" class="form-control" name="vBkashNo" required>
                                         </div>
                                     </div>
 

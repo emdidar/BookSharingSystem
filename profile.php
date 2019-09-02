@@ -22,6 +22,7 @@
                     $vThana=mysqli_real_escape_string($db->link,$_POST['vThana']);
                     $vZipCode=mysqli_real_escape_string($db->link,$_POST['vZipCode']);
                     $vMobile=mysqli_real_escape_string($db->link,$_POST['vMobile']);
+                    $vBkashNo=mysqli_real_escape_string($db->link,$_POST['vBkashNo']);
                     $vAddress=mysqli_real_escape_string($db->link,$_POST['vAddress']);
                     $vEmail=mysqli_real_escape_string($db->link,$_POST['vEmail']);
                     $vNationalId=mysqli_real_escape_string($db->link,$_POST['vNationalId']);
@@ -34,6 +35,7 @@
                         vThana='$vThana',
                         vZipCode='$vZipCode',
                         vMobile='$vMobile',
+                        vBkashNo='$vBkashNo',
                         vAddress='$vAddress',
                         vEmail='$vEmail',
                         vNationalId='$vNationalId' where iAutoId='$vUserId' ";
@@ -110,6 +112,13 @@
                         <label class="col-sm-2 col-form-label">Mobile</label>
                         <div class="col-sm-10">
                             <input type="text" value="<?php echo $result['vMobile']; ?>" class="form-control" placeholder="Mobile" name="vMobile" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Bkash No</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="<?php echo $result['vBkashNo']; ?>" class="form-control" placeholder="Bkash No" name="vBkashNo" required>
                         </div>
                     </div>
                     

@@ -47,7 +47,7 @@
                 ?>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="item">
-                        <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><img src="<?php echo $productResult['vImage1']; ?>" alt="img"></a>
+                        <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><img src="<?php echo $productResult['vImage1']; ?>" style="width:130px; height:160px;" alt="img"></a>
                         
                         <h3><a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><?php echo $productResult['vProductName']; ?></a></h3>
                         <h6><span class="price">TK <?php echo $productResult['vPrice']; ?></span> / <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>">View</a></h6>

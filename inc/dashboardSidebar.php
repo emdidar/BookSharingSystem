@@ -4,6 +4,17 @@
     $vUserType=Session::get('snUserType');
     $vPassword=Session::get('snPassword');
     Session::checkSession();
+    $newMessage='';
+    
+    $query="select count(*)newMessage from tbInbox where vStatus='unread' ";
+    $selectData=$db->select($query);
+    if($selectData)
+    {
+        while($result=$selectData->fetch_assoc())
+        {
+            $newMessage=$result['newMessage'];
+        }
+    }
 ?>
 
 <div class="breadcrumb">
@@ -25,8 +36,7 @@
                                     <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'dashboard.php'){echo 'active'; }else { echo ''; } ?>"> <a href="dashboard.php"><i class="fa fa-home"></i>	Dashboard</a> </li>
                             <?php
                                 if($vUserType=='admin')
-                                {?>
-                                    
+                                {?>                                    
                                     <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'userInfo.php'){echo 'active'; }else { echo ''; } ?>"> <a href="userInfo.php"><i class="fa fa-arrow-circle-o-right"></i>	User Info</a> </li>
 
                                     <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'categoryAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="categoryAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	CategoryInfo</a> </li>

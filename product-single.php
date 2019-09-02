@@ -133,7 +133,7 @@
                 ?> 
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
-                            <img src="<?php echo $productResult['vImage1'];?>" alt="img">
+                            <img src="<?php echo $productResult['vImage1'];?>" style="width:130px; height:160px;" alt="img">
                             <h3><?php echo $productResult['vProductName'];?></h3>
                             <h6><span class="price"><?php echo $productResult['vPrice'];?> tk</span></h6>
                             <div class="hover">

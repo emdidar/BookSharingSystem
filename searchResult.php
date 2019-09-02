@@ -1,69 +1,28 @@
 <?php
 	include 'inc/header.php';
 ?>
+
+<?php
+	if((!isset($_GET['vCity']) || $_GET['vCity']==NULL) && (!isset($_GET['vThana']) || $_GET['vThana']==NULL) && (!isset($_GET['vProduct']) || $_GET['vProduct']==NULL))
+	{
+		header("Location:search.php");
+	}
+	else
+    {
+		$vCity=$_GET['vCity'];
+		$vThana=$_GET['vThana'];
+		$vProduct=$_GET['vProduct'];
+	}
+?>
     <div class="breadcrumb">
         <div class="container">
             <a class="breadcrumb-item" href="index.php">Home</a>
-            <span class="breadcrumb-item active">Shop</span>
+            <span class="breadcrumb-item active">Search Results</span>
         </div>
     </div>
     <section class="static about-sec">
         <div class="container">
-            <!--<h2>highly recommendes books</h2>
-            <div class="recomended-sec">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img1.jpg" alt="img">
-                            <h3>how to be a bwase</h3>
-                            <h6><span class="price">tk249</span> / <a href="product-single.php">Buy Now</a></h6>
-                            <div class="hover">
-                                <a href="product-single.php">
-                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img2.jpg" alt="img">
-                            <h3>How to write a book...</h3>
-                            <h6><span class="price">tk119</span> / <a href="product-single.php">Buy Now</a></h6>
-                            <span class="sale">Sale !</span>
-                            <div class="hover">
-                                <a href="product-single.php">
-                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img3.jpg" alt="img">
-                            <h3>7-day self publish...</h3>
-                            <h6><span class="price">tk249</span> / <a href="product-single.php">Buy Now</a></h6>
-                            <div class="hover">
-                                <a href="product-single.php">
-                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img4.jpg" alt="img">
-                            <h3>wendy doniger</h3>
-                            <h6><span class="price">tk49</span> / <a href="product-single.php">Buy Now</a></h6>
-                            <div class="hover">
-                                <a href="product-single.php">
-                                    <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                                    </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-            <h2>recently added books to our store</h2>
+            <h2>Search Results</h2>
             <div class="recent-book-sec">
                 <div class="row">
                     <!--Pagination start-->
@@ -73,7 +32,8 @@
                         /*How may adjacent page links should be shown on each side of the current page link.*/
                         $adjacents = 2;
                         /*Get total number of records */
-                        $sql = "SELECT COUNT(*) 'total_rows' FROM `tbproductinfo` where status='active'";
+                        $sql = "SELECT COUNT(*) 'total_rows' FROM tbproductinfo a inner join tblogin b on a.vUploadBy=b.iAutoId 
+                        where a.status='active' and b.vCity like'%$vCity%' and b.vThana like'%$vThana%' and a.vProductName like'%$vProduct%' or a.vAuthorName like'%$vProduct%'  ";
                         $result=$db->select($sql);
                         if($result!=false)
                         {
@@ -95,21 +55,31 @@
                             $offset = 0;
                         }
 
-                        $query="select iAutoId,vProductName,vImage1,vPrice from tbProductinfo where status='active' limit $offset, $limit";
+                        $query="select a.iAutoId,b.vCity,b.vThana,a.vProductName,a.vImage1,a.vPrice from tbproductinfo a 
+                        inner join tblogin b on a.vUploadBy=b.iAutoId where a.status='active' and b.vCity like'%$vCity%' and b.vThana like'%$vThana%' and a.vProductName like'%$vProduct%' or a.vAuthorName like'%$vProduct%' limit $offset, $limit";
+                        
+                        //echo $query;
+                        
                         $data=$db->select($query);
-                        while($productResult=$data->fetch_assoc())
+                        if($data!=false)
                         {
-                    ?>
-                        <div class="col-md-3">
-                            <div class="item">
-                                <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><img src="<?php echo $productResult['vImage1']; ?>" style="width:130px; height:160px;" alt="img"></a>
+                            while($productResult=$data->fetch_assoc())
+                            {
+                        ?>
+                            <div class="col-md-3">
+                                <div class="item">
+                                    <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><img src="<?php echo $productResult['vImage1']; ?>" alt="img"></a>
 
-                                <h3><a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><?php echo $productResult['vProductName']; ?></a></h3>
+                                    <h3><a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>"><?php echo $productResult['vProductName']; ?></a></h3>
 
-                                <h6><span class="price">TK <?php echo $productResult['vPrice']; ?></span> / <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>">View</a></h6>
+                                    <h6><span class="price">TK <?php echo $productResult['vPrice']; ?></span> / <a href="product-single.php?id=<?php echo $productResult['iAutoId']; ?>">View</a></h6>
+                                </div>
                             </div>
-                        </div>
-                    <?php 
+                        <?php 
+                            }
+                        }
+                        else{
+                            echo "<span style='color:red;font-size:18px;'>Data Not Found.. !</span>";
                         }
                     ?>
                     

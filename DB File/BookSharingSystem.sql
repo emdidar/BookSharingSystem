@@ -29,13 +29,13 @@ CREATE TABLE IF NOT EXISTS `tbcart` (
   `vSharingType` varchar(150) NOT NULL,
   `dDate` date NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table booksharingsystem.tbcart: ~1 rows (approximately)
 DELETE FROM `tbcart`;
 /*!40000 ALTER TABLE `tbcart` DISABLE KEYS */;
 INSERT INTO `tbcart` (`iAutoId`, `vUserIp`, `vProductId`, `vProductName`, `vUploadBy`, `vPrice`, `vSharingType`, `dDate`) VALUES
-	(41, '::1', '40', 'Retina admission test Question bank', '9', 100, 'Sale', '2019-08-26');
+	(44, '::1', '36', 'Digital Logic and Computer Desing', '8', 120, 'Sale', '2019-09-02');
 /*!40000 ALTER TABLE `tbcart` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbcategoryinfo
@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS `tbcategoryinfo` (
   `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
   `vCategoryName` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbcategoryinfo: ~7 rows (approximately)
+-- Dumping data for table booksharingsystem.tbcategoryinfo: ~8 rows (approximately)
 DELETE FROM `tbcategoryinfo`;
 /*!40000 ALTER TABLE `tbcategoryinfo` DISABLE KEYS */;
 INSERT INTO `tbcategoryinfo` (`iAutoId`, `vCategoryName`) VALUES
@@ -84,6 +84,25 @@ INSERT INTO `tbcheckout` (`iAutoId`, `vUserId`, `vProductId`, `vProductName`, `v
 	(28, '2', '41', 'Retina admission test General knolage', '9', 'delivered by courier service', 'N/A', 'N/A', 'delivered by courier service', 0, 'Borrow', '2019-08-26');
 /*!40000 ALTER TABLE `tbcheckout` ENABLE KEYS */;
 
+-- Dumping structure for table booksharingsystem.tbinbox
+DROP TABLE IF EXISTS `tbinbox`;
+CREATE TABLE IF NOT EXISTS `tbinbox` (
+  `iAutoId` int(11) NOT NULL AUTO_INCREMENT,
+  `vName` varchar(50) NOT NULL,
+  `vEmail` varchar(50) NOT NULL,
+  `vMessage` varchar(5000) NOT NULL,
+  `vStatus` varchar(50) NOT NULL DEFAULT 'unread',
+  `dDate` date NOT NULL,
+  PRIMARY KEY (`iAutoId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vName, vEmail, vMessage, vStatus, dDate from tbInbox';
+
+-- Dumping data for table booksharingsystem.tbinbox: ~0 rows (approximately)
+DELETE FROM `tbinbox`;
+/*!40000 ALTER TABLE `tbinbox` DISABLE KEYS */;
+INSERT INTO `tbinbox` (`iAutoId`, `vName`, `vEmail`, `vMessage`, `vStatus`, `dDate`) VALUES
+	(1, 'test', 'c@gmail.com', 'test', 'unread', '2019-09-02');
+/*!40000 ALTER TABLE `tbinbox` ENABLE KEYS */;
+
 -- Dumping structure for table booksharingsystem.tblogin
 DROP TABLE IF EXISTS `tblogin`;
 CREATE TABLE IF NOT EXISTS `tblogin` (
@@ -96,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `tblogin` (
   `vThana` varchar(250) NOT NULL,
   `vZipCode` varchar(250) DEFAULT NULL,
   `vMobile` varchar(50) DEFAULT NULL,
+  `vBkashNo` varchar(50) DEFAULT NULL,
   `vAddress` varchar(250) DEFAULT NULL,
   `vEmail` varchar(150) DEFAULT NULL,
   `vNationalId` varchar(250) DEFAULT NULL,
@@ -103,20 +123,20 @@ CREATE TABLE IF NOT EXISTS `tblogin` (
   `vPassword` varchar(150) DEFAULT NULL,
   `vStatus` varchar(150) DEFAULT 'active',
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserType, vEmployeeName, vGender, vCountry, vCity, vThana, vZipCode, vMobile, vAddress,  vEmail, vNationalId, vImage, vPassword, vStatus from tblogin';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserType, vEmployeeName, vGender, vCountry, vCity, vThana, vZipCode, vMobile,vBkashNo, vAddress,  vEmail, vNationalId, vImage, vPassword, vStatus from tblogin';
 
--- Dumping data for table booksharingsystem.tblogin: ~4 rows (approximately)
+-- Dumping data for table booksharingsystem.tblogin: ~8 rows (approximately)
 DELETE FROM `tblogin`;
 /*!40000 ALTER TABLE `tblogin` DISABLE KEYS */;
-INSERT INTO `tblogin` (`iAutoId`, `vUserType`, `vEmployeeName`, `vGender`, `vCountry`, `vCity`, `vThana`, `vZipCode`, `vMobile`, `vAddress`, `vEmail`, `vNationalId`, `vImage`, `vPassword`, `vStatus`) VALUES
-	(1, 'admin', 'admin', 'Male', 'Bangladesh', 'Chittagong', 'Rangunia', '0088', '01830663166', 'GEC', 'admin@gmail.com', '123', 'Chrysanthemum.jpg', '123', 'active'),
-	(2, 'user', 's', 'Female', 'Bangladesh', 'Chittagong', '', '0088', '01830663154', 'Chittagong,Paslais', 's@gmail.com', '.', NULL, 's', 'active'),
-	(3, 'carrier', 'Mohammad Hossain', 'Male', 'Bangladesh', 'Dhaka', '', '0088', '01830663133', 'Dhaka, New Market', 'hossain@yahoo.com', 's', NULL, '123', 'active'),
-	(7, 'carrier', 'Misbah Uddin Bahar', 'Male', 'Bangladesh', 'Chittagong', '', '0088', '01830663166', 'chittagong,gec', 'bahar@yahoo.com', '5486899485645', NULL, '123', 'active'),
-	(8, 'user', 'Misbah Uddin Chy', 'Male', 'Bangladesh', 'Chittagong', '', '0088', '01830663162', 'Chittagong,gec', 'misbah@yahoo.com', '.', NULL, '123', 'active'),
-	(9, 'user', 'rajib', 'Male', 'Bangladesh', 'Dhaka', '', '0066', '01830663169', 'Dhaka', 'rajib21@gmail.com', 'ss', NULL, '123', 'active'),
-	(10, 'carrier', 'Mohammad Ibrahim', 'Male', 'Bangladesh', 'Chittagong', '', '0088', '01830663133', 'Chittagong,New Market', 'ibrahimctg@yahoo.com', 's', NULL, '123', 'active'),
-	(11, 'user', 'Hasan Reza', 'Male', 'Bangladesh', 'Chittagong', '', '0088', '01830663154', 'Chittagong,Paslais', 'hreza@gmail.com', '.', NULL, '123', 'active');
+INSERT INTO `tblogin` (`iAutoId`, `vUserType`, `vEmployeeName`, `vGender`, `vCountry`, `vCity`, `vThana`, `vZipCode`, `vMobile`, `vBkashNo`, `vAddress`, `vEmail`, `vNationalId`, `vImage`, `vPassword`, `vStatus`) VALUES
+	(1, 'admin', 'admin', 'Male', 'Bangladesh', 'Chittagong', 'Rangunia', '0088', '01830663166', '22222', 'GEC', 'admin@gmail.com', '123', 'Chrysanthemum.jpg', '123', 'active'),
+	(2, 'user', 's', 'Female', 'Bangladesh', 'Chittagong', 'Rangunia', '0088', '01830663154', '123', 'Chittagong,Paslais', 's@gmail.com', '.', NULL, 's', 'active'),
+	(3, 'carrier', 'Mohammad Hossain', 'Male', 'Bangladesh', 'Dhaka', 'Rangunia', '0088', '01830663133', NULL, 'Dhaka, New Market', 'hossain@yahoo.com', 's', NULL, '123', 'active'),
+	(7, 'carrier', 'Misbah Uddin Bahar', 'Male', 'Bangladesh', 'Chittagong', 'Rangunia', '0088', '01830663166', NULL, 'chittagong,gec', 'bahar@yahoo.com', '5486899485645', NULL, '123', 'active'),
+	(8, 'user', 'Misbah Uddin Chy', 'Male', 'Bangladesh', 'Chittagong', 'Rangunia', '0088', '01830663162', NULL, 'Chittagong,gec', 'misbah@yahoo.com', '.', NULL, '123', 'active'),
+	(9, 'user', 'rajib', 'Male', 'Bangladesh', 'Dhaka', 'Rangunia', '0066', '01830663169', NULL, 'Dhaka', 'rajib21@gmail.com', 'ss', NULL, '123', 'active'),
+	(10, 'carrier', 'Mohammad Ibrahim', 'Male', 'Bangladesh', 'Chittagong', 'Rangunia', '0088', '01830663133', NULL, 'Chittagong,New Market', 'ibrahimctg@yahoo.com', 's', NULL, '123', 'active'),
+	(11, 'user', 'Hasan Reza', 'Male', 'Bangladesh', 'Chittagong', 'Rangunia', '0088', '01830663154', NULL, 'Chittagong,Paslais', 'hreza@gmail.com', '.', NULL, '123', 'active');
 /*!40000 ALTER TABLE `tblogin` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbproductinfo
