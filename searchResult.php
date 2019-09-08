@@ -33,7 +33,7 @@
                         $adjacents = 2;
                         /*Get total number of records */
                         $sql = "SELECT COUNT(*) 'total_rows' FROM tbproductinfo a inner join tblogin b on a.vUploadBy=b.iAutoId 
-                        where a.status='active' and b.vCity like'%$vCity%' and b.vThana like'%$vThana%' and a.vProductName like'%$vProduct%' or a.vAuthorName like'%$vProduct%'  ";
+                        where a.status='active' and b.vCity like'%$vCity%' and b.vThana like'%$vThana%' and (a.vProductName like'%$vProduct%' or a.vAuthorName like'%$vProduct%')  ";
                         $result=$db->select($sql);
                         if($result!=false)
                         {
