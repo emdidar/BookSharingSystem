@@ -37,11 +37,15 @@
                             <?php
                                 if($vUserType=='admin')
                                 {?>                                    
+                                    <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'inbox.php'){echo 'active'; }else { echo ''; } ?>"> <a href="inbox.php"><i class="fa fa-arrow-circle-o-right"></i>	inbox <?php echo $newMessage?></a> </li>        
+                                                        
                                     <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'userInfo.php'){echo 'active'; }else { echo ''; } ?>"> <a href="userInfo.php"><i class="fa fa-arrow-circle-o-right"></i>	User Info</a> </li>
 
                                     <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'categoryAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="categoryAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	CategoryInfo</a> </li>
 
                                     <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'productAdd.php'){echo 'active'; }else { echo ''; } ?>"> <a href="productAdd.php"><i class="fa fa-arrow-circle-o-right"></i>	Product Info</a> </li>
+                                    
+                                    <li class="list-group-item <?php if(basename($_SERVER['SCRIPT_NAME']) == 'myOrderList.php'){echo 'active'; }else { echo ''; } ?>"> <a href="myOrderList.php"><i class="fa fa-arrow-circle-o-right"></i>	My Order List</a> </li>
                             <?php
                                 }
                             ?>

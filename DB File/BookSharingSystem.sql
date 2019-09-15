@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.1.31-MariaDB - mariadb.org binary distribution
+-- Server version:               10.1.22-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.5.0.5278
+-- HeidiSQL Version:             9.4.0.5125
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `tbcategoryinfo` (
   PRIMARY KEY (`iAutoId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbcategoryinfo: ~8 rows (approximately)
+-- Dumping data for table booksharingsystem.tbcategoryinfo: ~7 rows (approximately)
 DELETE FROM `tbcategoryinfo`;
 /*!40000 ALTER TABLE `tbcategoryinfo` DISABLE KEYS */;
 INSERT INTO `tbcategoryinfo` (`iAutoId`, `vCategoryName`) VALUES
@@ -94,13 +94,14 @@ CREATE TABLE IF NOT EXISTS `tbinbox` (
   `vStatus` varchar(50) NOT NULL DEFAULT 'unread',
   `dDate` date NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vName, vEmail, vMessage, vStatus, dDate from tbInbox';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vName, vEmail, vMessage, vStatus, dDate from tbInbox';
 
--- Dumping data for table booksharingsystem.tbinbox: ~0 rows (approximately)
+-- Dumping data for table booksharingsystem.tbinbox: ~2 rows (approximately)
 DELETE FROM `tbinbox`;
 /*!40000 ALTER TABLE `tbinbox` DISABLE KEYS */;
 INSERT INTO `tbinbox` (`iAutoId`, `vName`, `vEmail`, `vMessage`, `vStatus`, `dDate`) VALUES
-	(1, 'test', 'c@gmail.com', 'test', 'unread', '2019-09-02');
+	(1, 'test', 'c@gmail.com', 'test', 'unread', '2019-09-02'),
+	(5, 'sdfsd', 'admin@gmail.com', 'sdfsdf', 'read', '2019-09-16');
 /*!40000 ALTER TABLE `tbinbox` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tblogin

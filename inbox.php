@@ -25,7 +25,7 @@
                     </thead>
                     <tbody>
                         <?php
-                        $query="select iAutoId, vName, vEmail, vMessage, vStatus, dDate from tbInbox";
+                        $query="select iAutoId, vName, vEmail, vMessage, vStatus, dDate from tbInbox order by dDate desc";
                         $selectData=$db->select($query);
                         if($selectData)
                         {
@@ -39,7 +39,7 @@
                                 <td><?php echo $result['vName']; ?></td>
                                 <td><?php echo $result['vEmail']; ?></td>
                                 <td><?php echo $result['vStatus']; ?></td>
-                                <td><a href="message.php?id=<?php echo $result['iAutoId'];?>">view</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="messageDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
+                                <td><a href="message.php?id=<?php echo $result['iAutoId'];?>">view</a> || <a onclick="return confirm('Are you sure to Delete! ');" href="inboxDelete.php?deleteid=<?php echo $result['iAutoId'];?>">Delete</a></td>
                             </tr>
                            <?php $i++;
                             }
