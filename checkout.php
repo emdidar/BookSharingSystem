@@ -14,7 +14,7 @@
     $vUploadBy='';
     $vSharingType='';
     $vProductId='';
-    $ishidden='';
+    $ishidden='hidden';
 
 ?>
     <div class="breadcrumb">
@@ -60,10 +60,10 @@
                                                     $vProductId=$result['vProductId'];
                                                     $vGrandTotal=$vGrandTotal+$result['vPrice'];
                                                     
-                                                    if ($vSharingType=='Borrow') 
+                                                    /*if ($vSharingType=='Borrow') 
                                                     {
                                                         $ishidden='hidden';
-                                                    }
+                                                    }*/
                                             ?>
                                             <tr>
                                                 <td><?php echo $i;?></td>
@@ -101,11 +101,11 @@
 
                                         if ($vSharingType!='Borrow') 
                                         {
-                                            if (!empty($vBkashNo)) 
+                                            /*if (!empty($vBkashNo)) 
                                             {
                                                 if (!empty($vTransactionId)) 
-                                                {
-                                                    $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice, dDate, vSharingType ) select '$vUserId', vProductId, vProductName, vUploadBy, '$vBkashNo', '$vTransactionId', vPrice, dDate, vSharingType from tbcart a where vUserIp='$vUserIp'";
+                                                {*/
+                                                    $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice, dDate, vSharingType ) select '$vUserId', vProductId, vProductName, vUploadBy, '', '', vPrice, dDate, vSharingType from tbcart a where vUserIp='$vUserIp'";
                                                     
                                                     $dataInsert = $db->insert($query);
                                                     if ($dataInsert) 
@@ -120,14 +120,14 @@
                                                     else {
                                                         echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
                                                     }
-                                                }
+                                                /*}
                                                 else{
                                                     echo "<span style='color:red;font-size:18px;'>Please provide Transaction No.. !</span>";
                                                 }
                                             }
                                             else{
                                                 echo "<span style='color:red;font-size:18px;'>Please provide Bkash No.. !</span>";
-                                            }
+                                            }*/
                                         } 
                                         else 
                                         {
@@ -168,7 +168,7 @@
                                                 <input type="text" class="form-control" placeholder="Bkash Transaction Id" name="vTransactionId">
                                             </div>
                                         </div>
-                                            <button type="submit" class="btn btn-primary">Checkout</button>
+                                            <button type="submit" class="btn btn-primary">Confirm</button>
                                     </form>
                                     <!--<a href="checkout.php"> <img src="images/check.png" alt="" /></a>-->
                                 </div>

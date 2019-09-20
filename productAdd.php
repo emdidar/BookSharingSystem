@@ -22,6 +22,8 @@
                     $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
                     $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
                     $vDescription=mysqli_real_escape_string($db->link,$_POST['vDescription']);
+                    
+                    $vCarrierCost=(20/100)*$vPrice;
 		
                     $file_name1 = $_FILES['image1']['name'];
                     $file_temp1 = $_FILES['image1']['tmp_name'];
@@ -55,7 +57,9 @@
                     move_uploaded_file($file_temp3, $uploaded_image3);
                     
                     
-                    $query = "insert into tbProductinfo (vProductName, vCategory, vSharingType, vAuthorName, vUploadBy, vPrice, vImage1, vImage2, vImage3, vDescription,dDate) 
+                    
+                    
+                    $query = "insert into tbProductinfo (vProductName, vCategory, vSharingType, vAuthorName, vUploadBy, vPrice, vImage1, vImage2, vImage3, vDescription,dDate,vCarrierCost) 
                             values(
                             '$vProductName',
                             '$vCategory',
@@ -66,7 +70,8 @@
                             '$uploaded_image1',
                             '$uploaded_image2',
                             '$uploaded_image3',
-                            '$vDescription',CURDATE())";
+                            '$vDescription',CURDATE(),
+                            '$vCarrierCost')";
 
                     $dataInsert = $db->insert($query);
                     if ($dataInsert) 
@@ -155,14 +160,14 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                            <input type="file" class="form-control" name="image2" required>
+                            <input type="file" class="form-control" name="image2" >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                            <input type="file" class="form-control" name="image3" required>
+                            <input type="file" class="form-control" name="image3" >
                         </div>
                     </div>
 

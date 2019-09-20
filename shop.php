@@ -9,60 +9,70 @@
     </div>
     <section class="static about-sec">
         <div class="container">
-            <!--<h2>highly recommendes books</h2>
+            <h2>Search your Book</h2>
             <div class="recomended-sec">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img1.jpg" alt="img">
-                            <h3>how to be a bwase</h3>
-                            <h6><span class="price">tk249</span> / <a href="product-single.php">Buy Now</a></h6>
-                            <div class="hover">
-                                <a href="product-single.php">
-                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img2.jpg" alt="img">
-                            <h3>How to write a book...</h3>
-                            <h6><span class="price">tk119</span> / <a href="product-single.php">Buy Now</a></h6>
-                            <span class="sale">Sale !</span>
-                            <div class="hover">
-                                <a href="product-single.php">
-                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img3.jpg" alt="img">
-                            <h3>7-day self publish...</h3>
-                            <h6><span class="price">tk249</span> / <a href="product-single.php">Buy Now</a></h6>
-                            <div class="hover">
-                                <a href="product-single.php">
-                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <img src="images/img4.jpg" alt="img">
-                            <h3>wendy doniger</h3>
-                            <h6><span class="price">tk49</span> / <a href="product-single.php">Buy Now</a></h6>
-                            <div class="hover">
-                                <a href="product-single.php">
-                                    <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                                    </a>
-                            </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form">
+                            <?php
+                                /*if($_SERVER['REQUEST_METHOD']=='POST')
+                                {
+                                    $vCity=$fm->validation($_POST['vCity']);
+                                    $vThana=$_POST['vThana'];
+
+                                    echo "<script>location='searchResult.php'</script>";
+                                }*/
+                            ?>
+                            <form action="searchResult.php" method="get">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <select class="" name="vCity" required >
+                                            <option selected>Select City...</option>
+                                            <?php
+                                                $query="select distinct vCity from tbLogin a where vStatus='active' and ifnull(vCity,'')!='' and iAutoId in (select vUploadBy from tbproductinfo where vUploadBy=a.iAutoId)";
+                                                $selectData=$db->select($query);
+                                                if($selectData)
+                                                {
+                                                    while($result=$selectData->fetch_assoc())
+                                                    {
+                                                ?>
+                                                    <option value="<?php echo $result['vCity']; ?>"><?php echo $result['vCity']; ?></option>
+                                                <?php
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="" name="vThana" required >
+                                            <option selected>Select Thana...</option>
+                                            <?php
+                                                $query="select distinct vThana from tbLogin a where vStatus='active' and ifnull(vThana,'')!='' and iAutoId in (select vUploadBy from tbproductinfo where vUploadBy=a.iAutoId)";
+                                                $selectData=$db->select($query);
+                                                if($selectData)
+                                                {
+                                                    while($result=$selectData->fetch_assoc())
+                                                    {
+                                                ?>
+                                                    <option value="<?php echo $result['vThana']; ?>"><?php echo $result['vThana']; ?></option>
+                                                <?php
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>                        
+                                    <div class="col-md-4">
+                                        <input type="text" placeholder="Book or Author Name" name="vProduct" required>
+                                    </div>
+                                    <div class="col-lg-8 col-md-12">
+                                        <button type="submit" class="btn black">Search</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>-->
+            </div>
             <h2>recently added books to our store</h2>
             <div class="recent-book-sec">
                 <div class="row">

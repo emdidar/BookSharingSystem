@@ -30,13 +30,20 @@
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') 
             { 
+                $vProductId=mysqli_real_escape_string($db->link,$_POST['vProductId']);
+                $vBkashNo=mysqli_real_escape_string($db->link,$_POST['vBkashNo']);
+                $vTransactionId=mysqli_real_escape_string($db->link,$_POST['vTransactionId']);
                 $vStatus=mysqli_real_escape_string($db->link,$_POST['vStatus']);
 
                 /*select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout*/
 
+                
+                
                 $query = "update tbcheckout 
-                    set vStatus='$vStatus' 
-                    where iAutoId='$editid' ";
+                    set vStatus='$vStatus',
+                    vBkashNo='$vBkashNo',
+                    vTransactionId='$vTransactionId' 
+                    where iAutoId='$editid' ";                
 
                     $dataUpdate = $db->update($query);
                     if ($dataUpdate) 
@@ -52,8 +59,10 @@
             <?php
                 $query="select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId , 
                 (select vEmployeeName from tblogin where iAutoId=a.vCarrierId )vEmployeeName ,
+                (select vCarrierCost from tbProductInfo where iAutoId=a.vProductId )vCarrierCost ,
                 (select vCity from tblogin where iAutoId=a.vCarrierId )vCity ,
-                vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout a  where iAutoId='$editid' ";
+                vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate 
+                from tbcheckout a  where iAutoId='$editid' ";
                 $data=$db->select($query);
                 while($productResult=$data->fetch_assoc())
                 {
@@ -68,6 +77,12 @@
                         <input readonly type="text" class="form-control" value="<?php echo $productResult['dDate']; ?>" name="dDate" required>
                     </div>
                 </div>
+                <div hidden class="form-group row">
+                    <label class="col-sm-2 col-form-label">Product ID</label>
+                    <div class="col-sm-10">
+                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vProductId']; ?>" name="vProductId" required>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Product Name</label>
                     <div class="col-sm-10">
@@ -77,13 +92,13 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Bkash No</label>
                     <div class="col-sm-10">
-                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vBkashNo']; ?>" name="vBkashNo" required>
+                        <input type="text" class="form-control" value="<?php echo $productResult['vBkashNo']; ?>" name="vBkashNo" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Transaction ID</label>
                     <div class="col-sm-10">
-                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vTransactionId']; ?>" name="vTransactionId" required>
+                        <input type="text" class="form-control" value="<?php echo $productResult['vTransactionId']; ?>" name="vTransactionId" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -96,6 +111,12 @@
                     <label class="col-sm-2 col-form-label">Price</label>
                     <div class="col-sm-10">
                         <input readonly type="text" class="form-control" value="<?php echo $productResult['vPrice']; ?>" name="vPrice" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Carrier Cost</label>
+                    <div class="col-sm-10">
+                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vCarrierCost']; ?>" name="vPrice" required>
                     </div>
                 </div>
                 <div class="form-group row">

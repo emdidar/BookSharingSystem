@@ -43,15 +43,20 @@
                             $vEmail=mysqli_real_escape_string($db->link,$_POST['vEmail']);
                             $vMessage=mysqli_real_escape_string($db->link,$_POST['vMessage']);
                             $query = "insert into tbInbox (vName, vEmail, vMessage, dDate) 
-                                    values('$vName','$vEmail','$vMessage',CURDATE())";
-                            $dataInsert = $db->insert($query);
-                            if ($dataInsert) 
+                                    values('$vName','$vEmail','$vMessage',CURDATE())"; 
+                            
+                            if(!empty($vName) && !empty($vEmail) && !empty($vMessage))
                             {
-                                echo "<span style='color:green;font-size:18px;'>Message send Successfully.</span>";
+                                $dataInsert = $db->insert($query);
+                                if ($dataInsert) 
+                                {
+                                    echo "<span style='color:green;font-size:18px;'>Message send Successfully.</span>";
+                                } 
+                                else {
+                                    echo "<span style='color:red;font-size:18px;'>Message Not send Successfully !</span>";
+                                }
                             } 
-                            else {
-                                echo "<span style='color:red;font-size:18px;'>Message Not send Successfully !</span>";
-                            }
+                            
                         }
                         ?>
                         <form action="" method="post">

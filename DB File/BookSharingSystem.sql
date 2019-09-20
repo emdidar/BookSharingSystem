@@ -29,13 +29,13 @@ CREATE TABLE IF NOT EXISTS `tbcart` (
   `vSharingType` varchar(150) NOT NULL,
   `dDate` date NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table booksharingsystem.tbcart: ~1 rows (approximately)
 DELETE FROM `tbcart`;
 /*!40000 ALTER TABLE `tbcart` DISABLE KEYS */;
 INSERT INTO `tbcart` (`iAutoId`, `vUserIp`, `vProductId`, `vProductName`, `vUploadBy`, `vPrice`, `vSharingType`, `dDate`) VALUES
-	(44, '::1', '36', 'Digital Logic and Computer Desing', '8', 120, 'Sale', '2019-09-02');
+	(49, '::1', '35', 'new book', '8', 123, 'Sale', '2019-09-20');
 /*!40000 ALTER TABLE `tbcart` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbcategoryinfo
@@ -75,13 +75,15 @@ CREATE TABLE IF NOT EXISTS `tbcheckout` (
   `vSharingType` varchar(150) NOT NULL,
   `dDate` date NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout';
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout';
 
 -- Dumping data for table booksharingsystem.tbcheckout: ~1 rows (approximately)
 DELETE FROM `tbcheckout`;
 /*!40000 ALTER TABLE `tbcheckout` DISABLE KEYS */;
 INSERT INTO `tbcheckout` (`iAutoId`, `vUserId`, `vProductId`, `vProductName`, `vUploadBy`, `vCarrierId`, `vBkashNo`, `vTransactionId`, `vStatus`, `vPrice`, `vSharingType`, `dDate`) VALUES
-	(28, '2', '41', 'Retina admission test General knolage', '9', 'delivered by courier service', 'N/A', 'N/A', 'delivered by courier service', 0, 'Borrow', '2019-08-26');
+	(28, '2', '41', 'Retina admission test General knolage', '9', 'delivered by courier service', 'N/A', 'N/A', 'delivered by courier service', 0, 'Borrow', '2019-08-26'),
+	(29, '1', '36', 'Digital Logic and Computer Desing', '8', '7', '', '', 'delivered', 120, 'Sale', '2019-09-20'),
+	(30, '1', '35', 'new book', '8', '7', '3', '3', 'delivered', 123, 'Sale', '2019-09-20');
 /*!40000 ALTER TABLE `tbcheckout` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tbinbox
@@ -94,14 +96,14 @@ CREATE TABLE IF NOT EXISTS `tbinbox` (
   `vStatus` varchar(50) NOT NULL DEFAULT 'unread',
   `dDate` date NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vName, vEmail, vMessage, vStatus, dDate from tbInbox';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1 COMMENT='select iAutoId, vName, vEmail, vMessage, vStatus, dDate from tbInbox';
 
--- Dumping data for table booksharingsystem.tbinbox: ~2 rows (approximately)
+-- Dumping data for table booksharingsystem.tbinbox: ~15 rows (approximately)
 DELETE FROM `tbinbox`;
 /*!40000 ALTER TABLE `tbinbox` DISABLE KEYS */;
 INSERT INTO `tbinbox` (`iAutoId`, `vName`, `vEmail`, `vMessage`, `vStatus`, `dDate`) VALUES
-	(1, 'test', 'c@gmail.com', 'test', 'unread', '2019-09-02'),
-	(5, 'sdfsd', 'admin@gmail.com', 'sdfsdf', 'read', '2019-09-16');
+	(1, 'test', 'c@gmail.com', 'test', 'read', '2019-09-02'),
+	(21, 's', 's@gmail.com', 's', 'unread', '2019-09-20');
 /*!40000 ALTER TABLE `tbinbox` ENABLE KEYS */;
 
 -- Dumping structure for table booksharingsystem.tblogin
@@ -156,23 +158,24 @@ CREATE TABLE IF NOT EXISTS `tbproductinfo` (
   `vImage3` varchar(250) DEFAULT NULL,
   `status` varchar(50) DEFAULT 'active',
   `dDate` date NOT NULL,
+  `vCarrierCost` double NOT NULL,
   PRIMARY KEY (`iAutoId`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
--- Dumping data for table booksharingsystem.tbproductinfo: ~10 rows (approximately)
+-- Dumping data for table booksharingsystem.tbproductinfo: ~11 rows (approximately)
 DELETE FROM `tbproductinfo`;
 /*!40000 ALTER TABLE `tbproductinfo` DISABLE KEYS */;
-INSERT INTO `tbproductinfo` (`iAutoId`, `vCategory`, `vSharingType`, `vProductName`, `vAuthorName`, `vDescription`, `vUploadBy`, `vPrice`, `vImage1`, `vImage2`, `vImage3`, `status`, `dDate`) VALUES
-	(35, '3', 'Sale', 'new book', 'Bahar', NULL, '8', 123, 'images/upload/imgOne066a5d0b12.jpg', 'images/upload/imgTwo066a5d0b12.jpg', 'images/upload/imgThree066a5d0b12.jpg', 'active', '0000-00-00'),
-	(36, '3', 'Sale', 'Digital Logic and Computer Desing', 'M. MORRIS MANO', NULL, '8', 120, 'images/upload/imgOnefe73ba171b.jpg', 'images/upload/imgTwofe73ba171b.jpg', 'images/upload/imgThreefe73ba171b.jpg', 'active', '0000-00-00'),
-	(37, '3', 'Sale', 'DISCRETE-EVENT SYSTEM SIMULATION', 'JERRY BANKS. JOHH S. CARSON BARRY L.NELSON. DAVID M. NICOL', NULL, '8', 150, 'images/upload/imgOned9285203f2.jpg', 'images/upload/imgTwod9285203f2.jpg', 'images/upload/imgThreed9285203f2.jpg', 'active', '0000-00-00'),
-	(38, '3', 'Donate', 'DATA STRUCTURES', 'Adapted by:G A V PAI', NULL, '8', 100, 'images/upload/imgOne78ac3f819e.jpg', 'images/upload/imgTwo78ac3f819e.jpg', 'images/upload/imgThree78ac3f819e.jpg', 'active', '0000-00-00'),
-	(39, '6', 'Borrow', 'Retina admission test book', 'Retina', ' ', '9', 0, 'images/upload/imgOne809d57b4ad.jpg', 'images/upload/imgTwo809d57b4ad.jpg', 'images/upload/imgThree809d57b4ad.jpg', 'active', '0000-00-00'),
-	(40, '6', 'Sale', 'Retina admission test Question bank', 'Retina', NULL, '9', 100, 'images/upload/imgOne725537897b.jpg', 'images/upload/imgTwo725537897b.jpg', 'images/upload/imgThree725537897b.jpg', 'active', '0000-00-00'),
-	(41, '6', 'Borrow', 'Retina admission test General knolage', 'Retina', NULL, '9', 0, 'images/upload/imgOneba368eb128.jpg', 'images/upload/imgTwoba368eb128.jpg', 'images/upload/imgThreeba368eb128.jpg', 'inactive', '0000-00-00'),
-	(42, '7', 'Sale', 'Jib Biggan 2nd part', 'Gaji ajmol and gaji asmot', NULL, '11', 100, 'images/upload/imgOne8140e14e66.jpg', 'images/upload/imgTwo8140e14e66.jpg', 'images/upload/imgThree8140e14e66.jpg', 'active', '0000-00-00'),
-	(43, '7', 'Donate', 'physics 1st', 'Dr. amir hossen khan,dr. md nojrol islam,professor mohammad ishaq', NULL, '11', 30, 'images/upload/imgOnec7f3d70102.jpg', 'images/upload/imgTwoc7f3d70102.jpg', 'images/upload/imgThreec7f3d70102.jpg', 'active', '0000-00-00'),
-	(44, '7', 'Borrow', 'physics 2nd', 'professor md golam hossen promanic, Dayan nasir uddin, dr Robiul Isram', NULL, '11', 0, 'images/upload/imgOne4a2ab3accf.jpg', 'images/upload/imgTwo4a2ab3accf.jpg', 'images/upload/imgThree4a2ab3accf.jpg', 'active', '0000-00-00');
+INSERT INTO `tbproductinfo` (`iAutoId`, `vCategory`, `vSharingType`, `vProductName`, `vAuthorName`, `vDescription`, `vUploadBy`, `vPrice`, `vImage1`, `vImage2`, `vImage3`, `status`, `dDate`, `vCarrierCost`) VALUES
+	(35, '3', 'Sale', 'new book', 'Bahar', NULL, '8', 123, 'images/upload/imgOne066a5d0b12.jpg', 'images/upload/imgTwo066a5d0b12.jpg', 'images/upload/imgThree066a5d0b12.jpg', 'inactive', '0000-00-00', 24.6),
+	(36, '3', 'Sale', 'Digital Logic and Computer Desing', 'M. MORRIS MANO', NULL, '8', 120, 'images/upload/imgOnefe73ba171b.jpg', 'images/upload/imgTwofe73ba171b.jpg', 'images/upload/imgThreefe73ba171b.jpg', 'inactive', '0000-00-00', 24),
+	(37, '3', 'Sale', 'DISCRETE-EVENT SYSTEM SIMULATION', 'JERRY BANKS. JOHH S. CARSON BARRY L.NELSON. DAVID M. NICOL', NULL, '8', 150, 'images/upload/imgOned9285203f2.jpg', 'images/upload/imgTwod9285203f2.jpg', 'images/upload/imgThreed9285203f2.jpg', 'active', '0000-00-00', 30),
+	(38, '3', 'Donate', 'DATA STRUCTURES', 'Adapted by:G A V PAI', NULL, '8', 100, 'images/upload/imgOne78ac3f819e.jpg', 'images/upload/imgTwo78ac3f819e.jpg', 'images/upload/imgThree78ac3f819e.jpg', 'active', '0000-00-00', 20),
+	(39, '6', 'Borrow', 'Retina admission test book', 'Retina', ' ', '9', 0, 'images/upload/imgOne809d57b4ad.jpg', 'images/upload/imgTwo809d57b4ad.jpg', 'images/upload/imgThree809d57b4ad.jpg', 'active', '0000-00-00', 0),
+	(40, '6', 'Sale', 'Retina admission test Question bank', 'Retina', NULL, '9', 100, 'images/upload/imgOne725537897b.jpg', 'images/upload/imgTwo725537897b.jpg', 'images/upload/imgThree725537897b.jpg', 'active', '0000-00-00', 20),
+	(41, '6', 'Borrow', 'Retina admission test General knolage', 'Retina', NULL, '9', 0, 'images/upload/imgOneba368eb128.jpg', 'images/upload/imgTwoba368eb128.jpg', 'images/upload/imgThreeba368eb128.jpg', 'inactive', '0000-00-00', 0),
+	(42, '7', 'Sale', 'Jib Biggan 2nd part', 'Gaji ajmol and gaji asmot', NULL, '11', 100, 'images/upload/imgOne8140e14e66.jpg', 'images/upload/imgTwo8140e14e66.jpg', 'images/upload/imgThree8140e14e66.jpg', 'active', '0000-00-00', 20),
+	(43, '7', 'Donate', 'physics 1st', 'Dr. amir hossen khan,dr. md nojrol islam,professor mohammad ishaq', NULL, '11', 30, 'images/upload/imgOnec7f3d70102.jpg', 'images/upload/imgTwoc7f3d70102.jpg', 'images/upload/imgThreec7f3d70102.jpg', 'active', '0000-00-00', 6),
+	(44, '7', 'Borrow', 'physics 2nd', 'professor md golam hossen promanic, Dayan nasir uddin, dr Robiul Isram', NULL, '11', 0, 'images/upload/imgOne4a2ab3accf.jpg', 'images/upload/imgTwo4a2ab3accf.jpg', 'images/upload/imgThree4a2ab3accf.jpg', 'active', '0000-00-00', 0);
 /*!40000 ALTER TABLE `tbproductinfo` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

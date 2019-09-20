@@ -101,9 +101,9 @@
                             <li class="navbar-item">
                                 <a href="faq.php" class="nav-link">FAQ</a>
                             </li>
-                            <li class="navbar-item">
+                            <!--<li class="navbar-item">
                                 <a href="search.php" class="nav-link">Search</a>
-                            </li>
+                            </li>-->
                             <?php
                                 $login = Session::get("login");
                                 if($login==true)
