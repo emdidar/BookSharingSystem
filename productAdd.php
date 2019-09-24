@@ -22,8 +22,9 @@
                     $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
                     $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
                     $vDescription=mysqli_real_escape_string($db->link,$_POST['vDescription']);
+                    $vCarrierCost=mysqli_real_escape_string($db->link,$_POST['vCarrierCost']);
                     
-                    $vCarrierCost=(20/100)*$vPrice;
+                    //$vCarrierCost=(20/100)*$vPrice;
 		
                     $file_name1 = $_FILES['image1']['name'];
                     $file_temp1 = $_FILES['image1']['tmp_name'];
@@ -147,6 +148,13 @@
                         <label class="col-sm-2 col-form-label">Price</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control" placeholder="Price" name="vPrice" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Carrier Cost</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" placeholder="Carrier Cost" name="vCarrierCost" required>
                         </div>
                     </div>
 

@@ -14,7 +14,7 @@
     $vUploadBy='';
     $vSharingType='';
     $vProductId='';
-    $ishidden='hidden';
+    $ishidden='';
 
 ?>
     <div class="breadcrumb">
@@ -151,9 +151,9 @@
                                     }
                                     ?>
                                     <?php 
-                                    /*if ($vSharingType='Borrow') {
+                                    if ($vSharingType='Borrow') {
                                         $ishidden='hidden';
-                                    }*/
+                                    }
                                     ?>
                                     <form class="form-horizontal" action="" method="POST" role="form">
                                         <div <?php echo $ishidden ?> class="form-group row">
