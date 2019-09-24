@@ -27,7 +27,7 @@
             <hr>
           <div class="panel-body">
             <?php
-                $query="select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout where iAutoId='$editid' ";
+                $query="select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate, vCarrierCost, vDuration from tbcheckout where iAutoId='$editid' ";
                 $data=$db->select($query);
                 while($productResult=$data->fetch_assoc())
                 {
@@ -69,6 +69,20 @@
                     <label class="col-sm-2 col-form-label">Price</label>
                     <div class="col-sm-10">
                         <input readonly type="text" class="form-control" value="<?php echo $productResult['vPrice']; ?>" name="vPrice" required>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Carrier Cost</label>
+                    <div class="col-sm-10">
+                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vCarrierCost']; ?>" name="vCarrierCost" required>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Duration</label>
+                    <div class="col-sm-10">
+                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vDuration']; ?>" name="vDuration" required>
                     </div>
                 </div>
                 

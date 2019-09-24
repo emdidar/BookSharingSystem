@@ -64,7 +64,7 @@
                     </table>
                     <br/>
                 
-                    <h3>Pending List for Carrier Approval</h3>
+                    <h3>Delivered Product List</h3>
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>

@@ -82,9 +82,11 @@
                             $vProductName=mysqli_real_escape_string($db->link,$_POST['vProductName']);
                             $vUploadBy=mysqli_real_escape_string($db->link,$_POST['vUploadBy']);
                             $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
+                            $vCarrierCost=mysqli_real_escape_string($db->link,$_POST['vCarrierCost']);
+                            $vDuration=mysqli_real_escape_string($db->link,$_POST['vDuration']);
 
-                            $query = "insert into tbcart (vUserIp, vProductId, vProductName, vUploadBy, vPrice, vSharingType, dDate) 
-                                    values('$vUserIp', '$vProductId', '$vProductName', '$vUploadBy', '$vPrice', '$vSharingType',CURDATE() )";
+                            $query = "insert into tbcart (vUserIp, vProductId, vProductName, vUploadBy, vPrice, vSharingType, dDate, vCarrierCost, vDuration) 
+                            values('$vUserIp', '$vProductId', '$vProductName', '$vUploadBy', '$vPrice', '$vSharingType',CURDATE(), '$vCarrierCost', '$vDuration' )";
 
                             $dataInsert = $db->insert($query);
                             if ($dataInsert) 
@@ -110,6 +112,8 @@
                         <input type="hidden" name="vAuthorName" value="<?php echo $productResult['vAuthorName']; ?>"/>
                         <input type="hidden" name="vUploadBy" value="<?php echo $productResult['vUploadBy']; ?>"/>
 				        <input type="hidden" name="vPrice" value="<?php echo $productResult['vPrice']; ?>"/>
+				        <input type="hidden" name="vCarrierCost" value="<?php echo $productResult['vCarrierCost']; ?>"/>
+				        <input type="hidden" name="vDuration" value="<?php echo $productResult['vDuration']; ?>"/>
                         
                         <div class="btn-sec">
                             <button type="submit" name="mybutton" id="buyNow" value="buyNow" class="btn ">Buy Now</button>

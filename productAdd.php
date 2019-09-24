@@ -23,6 +23,7 @@
                     $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
                     $vDescription=mysqli_real_escape_string($db->link,$_POST['vDescription']);
                     $vCarrierCost=mysqli_real_escape_string($db->link,$_POST['vCarrierCost']);
+                    $vDuration=mysqli_real_escape_string($db->link,$_POST['vDuration']);
                     
                     //$vCarrierCost=(20/100)*$vPrice;
 		
@@ -72,7 +73,8 @@
                             '$uploaded_image2',
                             '$uploaded_image3',
                             '$vDescription',CURDATE(),
-                            '$vCarrierCost')";
+                            '$vCarrierCost',
+                            '$vDuration')";
 
                     $dataInsert = $db->insert($query);
                     if ($dataInsert) 
@@ -141,6 +143,13 @@
                         <label class="col-sm-2 col-form-label">Upload By: </label>
                         <div class="col-sm-10">
                             <input readonly type="text" value="<?php echo $vUserId;?>" class="form-control" placeholder="Upload By" name="vUploadBy" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Duration</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" placeholder="Duration" name="vDuration" required>
                         </div>
                     </div>
 

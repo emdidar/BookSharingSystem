@@ -40,14 +40,14 @@
                                             <th>Product Name</th>
                                             <th>Type</th>
                                             <th>Image</th>
-                                            <th>Price</th>
+                                            <th>Carrier Cost</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                                         $i=1;
                                         $query="select iAutoId,vUserIp,vProductId,vProductName,
-                                        (select vImage1 from tbproductinfo where iAutoId=a.vProductId)vImage1,vUploadBy,vPrice,vSharingType 
+                                        (select vImage1 from tbproductinfo where iAutoId=a.vProductId)vImage1, vCarrierCost, vDuration, vUploadBy, vSharingType 
                                         from tbcart a where vUserIp='$vUserIp' ";
                                         $selectData=$db->select($query);
                                         if($selectData)
@@ -58,19 +58,14 @@
                                                     $vUploadBy=$result['vUploadBy'];
                                                     $vSharingType=$result['vSharingType'];
                                                     $vProductId=$result['vProductId'];
-                                                    $vGrandTotal=$vGrandTotal+$result['vPrice'];
-                                                    
-                                                    /*if ($vSharingType=='Borrow') 
-                                                    {
-                                                        $ishidden='hidden';
-                                                    }*/
+                                                    $vGrandTotal=$vGrandTotal+$result['vCarrierCost'];
                                             ?>
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $result['vProductName'];?></td>
                                                 <td><?php echo $result['vSharingType'];?></td>
                                                 <td><img style=" width: 80px; height: 50px;" src="<?php echo $result['vImage1'];?>" alt=""/></td>
-                                                <td>Tk. <?php echo $result['vPrice'];?></td>
+                                                <td>Tk. <?php echo $result['vCarrierCost'];?></td>
                                             </tr>
                                            <?php $i++;
                                             }
@@ -99,61 +94,40 @@
                                         $vBkashNo=mysqli_real_escape_string($db->link,$_POST['vBkashNo']);
                                         $vTransactionId=mysqli_real_escape_string($db->link,$_POST['vTransactionId']);
 
-                                        if ($vSharingType!='Borrow') 
+                                        if (!empty($vBkashNo)) 
                                         {
-                                            /*if (!empty($vBkashNo)) 
+                                            if (!empty($vTransactionId)) 
                                             {
-                                                if (!empty($vTransactionId)) 
-                                                {*/
-                                                    $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice, dDate, vSharingType ) select '$vUserId', vProductId, vProductName, vUploadBy, '', '', vPrice, dDate, vSharingType from tbcart a where vUserIp='$vUserIp'";
-                                                    
-                                                    $dataInsert = $db->insert($query);
-                                                    if ($dataInsert) 
-                                                    {
-                                                        $query = "update tbproductinfo set 
-                                                        status='inactive' where iAutoId='$vProductId' ";
+                                                $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice, dDate, vSharingType, vCarrierCost, vDuration ) 
+                                                select '$vUserId', vProductId, vProductName, vUploadBy, '$vBkashNo', '$vTransactionId', vPrice, dDate, vSharingType, vCarrierCost, vDuration from tbcart a where vUserIp='$vUserIp'";
 
-                                                        $dataUpdate= $db->update($query);
+                                                $dataInsert = $db->insert($query);
+                                                if ($dataInsert) 
+                                                {
+                                                    $query = "update tbproductinfo set 
+                                                    status='inactive' where iAutoId='$vProductId' ";
 
-                                                        echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully go to Dashboard.</span>";
-                                                    } 
-                                                    else {
-                                                        echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
-                                                    }
-                                                /*}
-                                                else{
-                                                    echo "<span style='color:red;font-size:18px;'>Please provide Transaction No.. !</span>";
+                                                    $dataUpdate= $db->update($query);
+
+                                                    echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully go to Dashboard.</span>";
+                                                } 
+                                                else {
+                                                    echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
                                                 }
                                             }
                                             else{
-                                                echo "<span style='color:red;font-size:18px;'>Please provide Bkash No.. !</span>";
-                                            }*/
-                                        } 
-                                        else 
-                                        {
-                                            $query = "insert into tbcheckout (vUserId, vProductId, vProductName, vUploadBy, vBkashNo, vTransactionId, vPrice, dDate, vSharingType )  
-                                            select '$vUserId', vProductId, vProductName, vUploadBy, 'N/A', 'N/A', vPrice, dDate, vSharingType from tbcart a where vUserIp='$vUserIp'"; 
-                                            
-                                            $dataInsert = $db->insert($query);
-                                            if ($dataInsert) 
-                                            {
-                                                $query = "update tbproductinfo set 
-                                                status='inactive' where iAutoId='$vProductId' ";
-
-                                                $dataUpdate= $db->update($query);
-
-                                                echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully go to Dashboard.</span>";
-                                            } 
-                                            else {
-                                                echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
+                                                echo "<span style='color:red;font-size:18px;'>Please provide Transaction No.. !</span>";
                                             }
+                                        }
+                                        else{
+                                            echo "<span style='color:red;font-size:18px;'>Please provide Bkash No.. !</span>";
                                         }
                                     }
                                     ?>
                                     <?php 
-                                    if ($vSharingType='Borrow') {
+                                    /*if ($vSharingType='Borrow') {
                                         $ishidden='hidden';
-                                    }
+                                    }*/
                                     ?>
                                     <form class="form-horizontal" action="" method="POST" role="form">
                                         <div <?php echo $ishidden ?> class="form-group row">
@@ -168,7 +142,7 @@
                                                 <input type="text" class="form-control" placeholder="Bkash Transaction Id" name="vTransactionId">
                                             </div>
                                         </div>
-                                            <button type="submit" class="btn btn-primary">Confirm</button>
+                                            <button type="submit" class="btn btn-primary">Checkout</button>
                                     </form>
                                     <!--<a href="checkout.php"> <img src="images/check.png" alt="" /></a>-->
                                 </div>
@@ -184,13 +158,12 @@
                             <h4 style="font-size: 15px; " class="card-title">Your Shipping Info</h4>
                             <hr>
                             <div class="panel-body">
-                                <?php
-                                    $query="select * from tblogin where iAutoId='$vUserId' order by iAutoId desc";
-                                    $branch=$db->select($query);
-                                    while($result=$branch->fetch_assoc())
-                                    {
-
-                                ?> 
+                            <?php
+                                $query="select * from tblogin where iAutoId='$vUserId' order by iAutoId desc";
+                                $branch=$db->select($query);
+                                while($result=$branch->fetch_assoc())
+                                {
+                            ?> 
 
                                 <form class="form-horizontal" action="" method="POST" role="form">
                                     <div hidden class="form-group row">

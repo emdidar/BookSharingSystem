@@ -37,7 +37,7 @@
                         <h3>Quick Contact us</h3>
                         <h6></h6>
                         <?php
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnEmail'])) 
                         {
                             $vName=mysqli_real_escape_string($db->link,$_POST['vName']);
                             $vEmail=mysqli_real_escape_string($db->link,$_POST['vEmail']);
@@ -71,7 +71,7 @@
                                     <textarea placeholder="Messege" name="vMessage"></textarea>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn black">Alright, Submit</button>
+                                    <button type="submit" name="btnEmail" class="btn black">Alright, Submit</button>
                                 </div>
                             </div>
                         </form>

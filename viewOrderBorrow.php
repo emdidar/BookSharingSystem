@@ -23,45 +23,51 @@
 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Pending Product for Approval</h4>
+            <h4 class="card-title">View Order</h4>
             <hr>
           <div class="panel-body">
             <?php
 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-            { 
-                $vCarrierId=mysqli_real_escape_string($db->link,$_POST['vCarrierId']);
-
-                /*select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate from tbcheckout*/
-                if($vCarrierId=='delivered by courier service'){
-                    $vStatus='delivered by courier service';
-                }
-                else{
-                    $vStatus='pending for carrier Approval';
-
-                }
-                $query = "update tbcheckout 
-                    set vCarrierId='$vCarrierId' ,
-                    vStatus='$vStatus' 
-                    where iAutoId='$editid' ";
-
-                    $dataUpdate = $db->update($query);
-                    if ($dataUpdate) 
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                { 
+                    $vProductId=mysqli_real_escape_string($db->link,$_POST['vProductId']);
+                    $vCarrierId=mysqli_real_escape_string($db->link,$_POST['vCarrierId']);
+                    
+                    if($vCarrierId=='return by courier service')
                     {
-                        echo "<span style='color:green;font-size:18px;'>All Information update Successfully.</span>";
-                    } 
-                    else {
-                        echo "<span style='color:red;font-size:18px;'>All Information Not update !</span>";
-                    }
-            }
-            ?>
+                        $queryActive = "update tbproductinfo 
+                        set status='active' where iAutoId='$vProductId' ";
 
+                        $dataUpdate = $db->update($queryActive);
+                    }
+                    else{
+                        $queryInactive = "update tbproductinfo 
+                        set status='inactive' where iAutoId='$vProductId' ";
+
+                        $dataUpdate = $db->update($queryInactive);
+                    }
+                    $query = "update tbcheckout 
+                        set vCarrierId='$vCarrierId',
+                        vStatus='$vCarrierId' where iAutoId='$editid' ";
+
+                        $dataUpdate = $db->update($query);
+                        if ($dataUpdate) 
+                        {
+                            echo "<span style='color:green;font-size:18px;'>Information update Successfully.</span>";
+                        } 
+                        else {
+                            echo "<span style='color:red;font-size:18px;'>Information Not update !</span>";
+                        }
+                }
+            ?>
+            
+            
             <?php
                 $query="select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate, vCarrierCost, vDuration from tbcheckout where iAutoId='$editid' ";
                 $data=$db->select($query);
                 while($productResult=$data->fetch_assoc())
                 {
-                    $requestUser=$productResult['vUserId'];
+                    $requestUser=$productResult['vUploadBy'];
                     
             ?> 
             <form class="form-horizontal" action="" method="POST" role="form" enctype="multipart/form-data">
@@ -69,6 +75,12 @@
                     <label class="col-sm-2 col-form-label">Date</label>
                     <div class="col-sm-10">
                         <input readonly type="text" class="form-control" value="<?php echo $productResult['dDate']; ?>" name="dDate" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Product ID</label>
+                    <div class="col-sm-10">
+                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vProductId']; ?>" name="vProductId" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -116,17 +128,30 @@
                     </div>
                 </div>
                 
+                
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Carrier</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="vCarrierId" required>
                             <option value=""></option>
-                            <option value="delivered by courier service">delivered by courier service</option>
+                            <option 
+                                   <?php
+                                    if($productResult['vCarrierId']=='delivered by courier service') { ?>
+                                        selected="selected"
+                                   <?php } ?>  
+                                    value="delivered by courier service">delivered by courier service</option>
+                            <option 
+                                   <?php
+                                    if($productResult['vCarrierId']=='return by courier service') { ?>
+                                        selected="selected"
+                                   <?php } ?>  
+                                    value="return by courier service">return by courier service</option>
                         </select>
                     </div>
                 </div>
-
+                
                 <button type="submit" class="btn btn-primary">Submit</button>
+                
             </form>
             <?php 
                 }
@@ -139,7 +164,7 @@
 <div class="card">
     <div class="card-body">
         <!--<h4 style="font-size: 15px; " class="card-title">Shipping To</h4>-->
-        <h4 class="card-title">Shipping To</h4>
+        <h4 class="card-title">Supplier Info</h4>
         <hr>
         <div class="panel-body">
             <?php

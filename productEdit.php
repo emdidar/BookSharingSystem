@@ -53,6 +53,7 @@
                     $vPrice=mysqli_real_escape_string($db->link,$_POST['vPrice']);
                     $vDescription=mysqli_real_escape_string($db->link,$_POST['vDescription']);
                     $vCarrierCost=mysqli_real_escape_string($db->link,$_POST['vCarrierCost']);
+                    $vDuration=mysqli_real_escape_string($db->link,$_POST['vDuration']);
 		
                     $file_name1 = $_FILES['image1']['name'];
                     $file_temp1 = $_FILES['image1']['tmp_name'];
@@ -126,7 +127,8 @@
                         vUploadBy='$vUploadBy', 
                         vDescription='$vDescription', 
                         vPrice='$vPrice', 
-                        vCarrierCost='$vCarrierCost' where iAutoId='$editid' ";
+                        vCarrierCost='$vCarrierCost', 
+                        vDuration='$vDuration' where iAutoId='$editid' ";
 
                         $dataUpdate = $db->update($query);
                         if ($dataUpdate) 
@@ -220,6 +222,13 @@
                         <label class="col-sm-2 col-form-label">Upload By: </label>
                         <div class="col-sm-10">
                             <input readonly type="text" value="<?php echo $productResult['vUploadBy']; ?>" class="form-control" name="vUploadBy" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Duration</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" value="<?php echo $productResult['vDuration']; ?>" name="vDuration" required>
                         </div>
                     </div>
 
