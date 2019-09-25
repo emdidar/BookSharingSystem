@@ -61,7 +61,7 @@
                     
                     
                     
-                    $query = "insert into tbProductinfo (vProductName, vCategory, vSharingType, vAuthorName, vUploadBy, vPrice, vImage1, vImage2, vImage3, vDescription,dDate,vCarrierCost) 
+                    $query = "insert into tbProductinfo (vProductName, vCategory, vSharingType, vAuthorName, vUploadBy, vPrice, vImage1, vImage2, vImage3, vDescription,dDate,vCarrierCost,vDuration) 
                             values(
                             '$vProductName',
                             '$vCategory',

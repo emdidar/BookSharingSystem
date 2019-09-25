@@ -27,7 +27,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <select class="" name="vCity" required >
-                                            <option selected>Select City...</option>
+                                            <option selected value="%">All</option>
                                             <?php
                                                 $query="select distinct vCity from tbLogin a where vStatus='active' and ifnull(vCity,'')!='' and iAutoId in (select vUploadBy from tbproductinfo where vUploadBy=a.iAutoId)";
                                                 $selectData=$db->select($query);
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <select class="" name="vThana" required >
-                                            <option selected>Select Thana...</option>
+                                            <option selected value="%">All</option>
                                             <?php
                                                 $query="select distinct vThana from tbLogin a where vStatus='active' and ifnull(vThana,'')!='' and iAutoId in (select vUploadBy from tbproductinfo where vUploadBy=a.iAutoId)";
                                                 $selectData=$db->select($query);

@@ -16,7 +16,7 @@
 
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
                 {
-                    $vUserType=mysqli_real_escape_string($db->link,$_POST['vUserType']);
+                    $vUserType='user';
                     $vEmployeeName=mysqli_real_escape_string($db->link,$_POST['vEmployeeName']);
                     $vCountry=mysqli_real_escape_string($db->link,$_POST['vCountry']);
                     $vCity=mysqli_real_escape_string($db->link,$_POST['vCity']);
@@ -40,36 +40,21 @@
                     }
                     else
                     {
-                        if($vUserType!='Select User Type...')
-                        {
-                            $query = "insert into tblogin (vUserType, vEmployeeName, vCountry, vCity, vThana, vZipCode, vAddress, vMobile, vEmail, vPassword) values('$vUserType', '$vEmployeeName', '$vCountry', '$vCity', '$vThana', '$vZipCode', '$vAddress', '$vMobile', '$vEmail', '$vPassword')";
+                        $query = "insert into tblogin (vUserType, vEmployeeName, vCountry, vCity, vThana, vZipCode, vAddress, vMobile, vEmail, vPassword) values('$vUserType', '$vEmployeeName', '$vCountry', '$vCity', '$vThana', '$vZipCode', '$vAddress', '$vMobile', '$vEmail', '$vPassword')";
 
-                            $dataInsert = $db->insert($query);
-                            if ($dataInsert) 
-                            {
-                                echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully.</span>";
-                            } 
-                            else {
-                                echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
-                            }                            
-                        }
+                        $dataInsert = $db->insert($query);
+                        if ($dataInsert) 
+                        {
+                            echo "<span style='color:green;font-size:18px;'>All Information Inserted Successfully.</span>";
+                        } 
                         else {
-                            echo "<span style='color:red;font-size:18px;'>Please Select User Type !</span>";
+                            echo "<span style='color:red;font-size:18px;'>All Information Not Inserted !</span>";
                         }
                     }
                 }
                 ?>
                 <form action="" method="POST">
-                    <div class="row">					
-                        <div class="col-md-4">
-                            <!--oninvalid="this.setCustomValidity('Please Select User type')"-->
-                            <select class="" name="vUserType" required >
-								<option selected>Select User Type...</option>
-								<option value="user">user</option>
-								<option value="carrier">carrier</option>
-							</select>
-                        </div>
-                        
+                    <div class="row">                        
                         <div class="col-md-4">
                             <input placeholder="Full Name" name="vEmployeeName" required>
                         </div>	
