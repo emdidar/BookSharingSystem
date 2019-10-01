@@ -26,6 +26,27 @@
             <h4 class="card-title">View Order</h4>
             <hr>
           <div class="panel-body">
+           <?php
+
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                {
+                    $vCarrierId=mysqli_real_escape_string($db->link,$_POST['vCarrierId']);
+                        
+                    $query = "update tbcheckout 
+                        set vCarrierId='$vCarrierId',
+                        vStatus='$vCarrierId' where iAutoId='$editid' ";
+
+                        $dataUpdate = $db->update($query);
+                        if ($dataUpdate) 
+                        {
+                            echo "<span style='color:green;font-size:18px;'>Information update Successfully.</span>";
+                        } 
+                        else {
+                            echo "<span style='color:red;font-size:18px;'>Information Not update !</span>";
+                        }
+                }
+            ?>
+            
             <?php
                 $query="select iAutoId, vUserId, vProductId, vProductName, vUploadBy, vCarrierId, vBkashNo, vTransactionId, vStatus, vPrice, vSharingType, dDate, vCarrierCost, vDuration from tbcheckout where iAutoId='$editid' ";
                 $data=$db->select($query);
@@ -89,9 +110,26 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Carrier</label>
                     <div class="col-sm-10">
-                        <input readonly type="text" class="form-control" value="<?php echo $productResult['vCarrierId']; ?>" name="vCarrierId" required>
+                        <select class="form-control" name="vCarrierId" required>
+                            <option value=""></option>
+                            <option 
+                                   <?php
+                                    if($productResult['vCarrierId']=='delivered by courier service') { ?>
+                                        selected="selected"
+                                   <?php } ?>  
+                                    value="delivered by courier service">delivered by courier service</option>
+                            <option 
+                                   <?php
+                                    if($productResult['vCarrierId']=='Received') { ?>
+                                        selected="selected"
+                                   <?php } ?>  
+                                    value="Received">Received</option>
+                        </select>
                     </div>
                 </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+                
             </form>
             <?php 
                 }

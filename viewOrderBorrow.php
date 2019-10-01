@@ -142,6 +142,12 @@
                                     value="delivered by courier service">delivered by courier service</option>
                             <option 
                                    <?php
+                                    if($productResult['vCarrierId']=='Received') { ?>
+                                        selected="selected"
+                                   <?php } ?>  
+                                    value="Received">Received</option>
+                            <option 
+                                   <?php
                                     if($productResult['vCarrierId']=='return by courier service') { ?>
                                         selected="selected"
                                    <?php } ?>  
